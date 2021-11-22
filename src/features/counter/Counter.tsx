@@ -20,6 +20,7 @@ const Counter = () => {
 
   return (
     <div>
+      <MainButton>asdf</MainButton>
       <div className={styles.row}>
         <button
           className={styles.button}
