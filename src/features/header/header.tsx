@@ -14,7 +14,7 @@ const Head = styled.header`
   display: flex;
   justify-content: space-between;
   padding: 14px 16px;
-  border: 1px solid #f1f1f1;
+  border-bottom: 1px solid #f1f1f1;
 `;
 
 const Logo = styled.img`
