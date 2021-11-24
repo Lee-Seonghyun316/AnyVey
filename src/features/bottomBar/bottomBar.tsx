@@ -1,28 +1,37 @@
 import React from 'react';
 import styled from 'styled-components';
+import HomeOn from '../../common/images/bottomHomeOn.png';
 import Home from '../../common/images/bottomHome.png';
 import Reference from '../../common/images/bottomReference.png';
+import ReferenceOn from '../../common/images/bottoemReferenceOn.png';
 import MySurvey from '../../common/images/bottomMySurvey.png';
 import User from '../../common/images/bottomUser.png';
 import { theme } from '../../common/styles/theme';
 
-const BottomBar = () => {
+interface Props {
+  path: string;
+}
+
+const BottomBar: React.FC<Props> = ({ path }) => {
   return (
     <Wrap>
       <Button>
-        <Img src={Home} />홈
+        {path === 'home' ? <Img src={HomeOn} /> : <Img src={Home} />}홈
       </Button>
       <Button>
-        <Img src={Reference} />
+        {path === 'reference' ? (
+          <Img src={ReferenceOn} />
+        ) : (
+          <Img src={Reference} />
+        )}
         자료실
       </Button>
       <Button>
-        <Img src={MySurvey} />
+        {path === 'mySurvey' ? <Img src={HomeOn} /> : <Img src={MySurvey} />}
         내설문
       </Button>
       <Button>
-        <Img src={User} />
-        마이
+        {path === 'User' ? <Img src={HomeOn} /> : <Img src={User} />}마이
       </Button>
     </Wrap>
   );

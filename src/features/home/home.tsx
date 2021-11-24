@@ -21,7 +21,7 @@ const Home = () => {
 
   return (
     <HomeContainer>
-      <Header />
+      <Header path="home" />
       <OngoingSurvey>
         <SectionTitleContainer>
           <SectionTitle>진행중인 설문 </SectionTitle>
@@ -76,7 +76,7 @@ const Home = () => {
       <MoreButton onClick={handleMore}>
         {!moreToggle && <MoreImg src={more} />}
       </MoreButton>
-      <BottomBar />
+      <BottomBar path="home" />
     </HomeContainer>
   );
 };

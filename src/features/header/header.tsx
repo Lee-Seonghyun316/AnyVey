@@ -2,11 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import typoLogo from '../../common/images/typoLogo.png';
 import alarmImage from '../../common/images/alarm.png';
+import { theme } from '../../common/styles/theme';
 
-const Header = () => (
+interface Props {
+  path: string;
+}
+
+const Header: React.FC<Props> = ({ path }) => (
   <Head>
-    <Logo src={typoLogo} />
-    {true && <Alarm onClick={() => console.log('alarm click')} />}
+    {path === 'home' && <Logo src={typoLogo} />}
+    {path === 'reference' && <Title>자료실</Title>}
+    {false && <Alarm onClick={() => console.log('alarm click')} />}
   </Head>
 );
 
@@ -20,6 +26,12 @@ const Head = styled.header`
 const Logo = styled.img`
   width: 76.13px;
   height: 20px;
+`;
+
+const Title = styled.h1`
+  font-weight: ${theme.typography.semiBold};
+  font-size: 16px;
+  line-height: 22px;
 `;
 
 const Alarm = styled.button`
