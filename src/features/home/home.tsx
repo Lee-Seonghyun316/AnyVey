@@ -66,6 +66,11 @@ const Home = () => {
           <InterestTag>#20~30대 #일상</InterestTag>
           <InvolveButton>참여하기</InvolveButton>
         </Interest>
+        <Interest>
+          <InterestTitle>제로(0kcal)음료에 대한 인식</InterestTitle>
+          <InterestTag>#20~30대 #일상</InterestTag>
+          <InvolveButton>참여하기</InvolveButton>
+        </Interest>
       </Interests>
     </HomeContainer>
   );
@@ -123,6 +128,8 @@ const GainDes = styled.div`
 
 const Interests = styled.section`
   margin: 0 16px;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const InterestsTitle = styled.div`
