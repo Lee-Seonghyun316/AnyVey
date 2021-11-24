@@ -3,10 +3,14 @@ import styled from 'styled-components';
 import Header from '../header/header';
 import { theme } from '../../common/styles/theme';
 import 'react-circular-progressbar/dist/styles.css';
-import MySurvey from '../mySurvey/mySurvey';
+import MySurvey from './mySurvey';
+import more from '../../common/images/more.png';
+import coin from '../../common/images/coin.png';
+import InterestSurvey from './interestSurvey';
+import BottomBar from '../bottomBar/bottomBar';
 
 const Home = () => {
-  const states = [
+  const mySurveys = [
     {
       id: 1,
       title: '이색 콜라보 식품 구매 경험 및 인식',
@@ -31,6 +35,46 @@ const Home = () => {
       deadLine: '2021.12.12',
     },
   ];
+
+  const interests = [
+    {
+      id: 1,
+      title: '제로(0kcal)음료에 대한 인식',
+      tag: '#20~30대  #일상',
+    },
+    {
+      id: 2,
+      title: '‘그린워싱’ 제품 사용 경험에 대한 설문조사',
+      tag: '#20~30대  #사회',
+      gift: 'etc',
+    },
+    {
+      id: 3,
+      title: '헬스케어 플랫폼 설문조사',
+      tag: '#20~30대  #IT',
+    },
+    {
+      id: 4,
+      title: '코로나19 이후 2030 우울감 정도',
+      tag: '#20~30대  #사회',
+      gift: 'coffee',
+    },
+    {
+      id: 5,
+      title: '코로나19 이후 2030 우울감 정도',
+      tag: '#20~30대  #일상',
+      gift: 'coffee',
+    },
+    {
+      id: 6,
+      title: '코로나19 이후 2030 우울감 정도',
+      tag: '#20~30대  #일상',
+      gift: 'coffee',
+    },
+  ];
+  const interestsFirst = interests.slice(0, 4);
+  const interestsSecond = interests.slice(3);
+
   return (
     <HomeContainer>
       <Header />
@@ -40,38 +84,43 @@ const Home = () => {
           <Count>2</Count>
         </SectionTitleContainer>
         <MySurveys>
-          {states.map((state) => (
+          {mySurveys.map((mySurvey) => (
             <MySurvey
-              key={state.id}
-              title={state.title}
-              respondent={state.respondent}
-              recruitment={state.recruitment}
-              deadLine={state.deadLine}
-              gift={state.gift}
+              key={mySurvey.id}
+              title={mySurvey.title}
+              respondent={mySurvey.respondent}
+              recruitment={mySurvey.recruitment}
+              deadLine={mySurvey.deadLine}
+              gift={mySurvey.gift}
             />
           ))}
         </MySurveys>
       </OngoingSurvey>
       <ResponseGain>
         <GainTitle>설문 응답시 마일리지 지급!</GainTitle>
-        <GainDes>
-          마일리지는 설문조사 작성과 기존 설문 결과 데이터 열람 시 사용할 수
-          있어요
-        </GainDes>
+        <GainContent>
+          <GainDes>
+            마일리지는 설문조사 작성과 기존 설문 결과 데이터 열람 시 사용할 수
+            있어요
+          </GainDes>
+          <GainImg src={coin} />
+        </GainContent>
       </ResponseGain>
       <InterestsTitle>관심분야 설문이 올라왔어요!</InterestsTitle>
-      <Interests>
-        <Interest>
-          <InterestTitle>제로(0kcal)음료에 대한 인식</InterestTitle>
-          <InterestTag>#20~30대 #일상</InterestTag>
-          <InvolveButton>참여하기</InvolveButton>
-        </Interest>
-        <Interest>
-          <InterestTitle>제로(0kcal)음료에 대한 인식</InterestTitle>
-          <InterestTag>#20~30대 #일상</InterestTag>
-          <InvolveButton>참여하기</InvolveButton>
-        </Interest>
-      </Interests>
+      <InterestsContainer>
+        {interestsFirst.map((interest) => (
+          <InterestSurvey
+            key={interest.id}
+            title={interest.title}
+            tag={interest.tag}
+            gift={interest.gift}
+          />
+        ))}
+      </InterestsContainer>
+      <MoreButton>
+        <MoreImg src={more} />
+      </MoreButton>
+      <BottomBar />
     </HomeContainer>
   );
 };
@@ -113,10 +162,21 @@ const ResponseGain = styled.section`
   margin: 20px 16px;
 `;
 
+const GainContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 const GainTitle = styled.div`
   font-weight: ${theme.typography.semiBold};
   font-size: 18px;
   margin-bottom: 8px;
+`;
+
+const GainImg = styled.img`
+  width: 62px;
+  height: 62px;
 `;
 
 const GainDes = styled.div`
@@ -126,52 +186,28 @@ const GainDes = styled.div`
   color: #b4b4b4;
 `;
 
-const Interests = styled.section`
+const InterestsContainer = styled.section`
   margin: 0 16px;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 `;
 
 const InterestsTitle = styled.div`
-  padding: 23px 16px 20px 16px;
+  padding: 23px 16px 8px 16px;
   font-weight: ${theme.typography.medium};
   font-size: 16px;
   line-height: 22px;
   color: #2b2b2b;
 `;
 
-const Interest = styled.div`
-  padding: 16px 14px;
-  border: 1px solid #e9e9e9;
-  border-radius: 8px;
-  width: 166px;
-  height: 162px;
-  position: relative;
+const MoreButton = styled.div`
+  margin: 25px 0 33px 0;
+  display: flex;
+  justify-content: center;
 `;
 
-const InterestTitle = styled.h1`
-  font-weight: ${theme.typography.semiBold};
-  font-size: 14px;
-  line-height: 19px;
-  color: #2b2b2b;
-  margin-bottom: 8px;
-`;
-
-const InterestTag = styled.text`
-  font-weight: ${theme.typography.regular};
-  font-size: 12px;
-  line-height: 16px;
-  color: #b4b4b4;
-`;
-
-const InvolveButton = styled.button`
-  font-weight: ${theme.typography.semiBold};
-  font-size: 12px;
-  line-height: 16px;
-  color: ${theme.colors.orange};
-  border: 1px solid ${theme.colors.orange};
-  border-radius: 5px;
-  position: absolute;
-  right: 14px;
-  bottom: 14px;
+const MoreImg = styled.img`
+  width: 24px;
+  height: 24px;
 `;
