@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Header from '../header/header';
 import { theme } from '../../common/styles/theme';
@@ -74,6 +74,11 @@ const Home = () => {
   ];
   const interestsFirst = interests.slice(0, 4);
   const interestsSecond = interests.slice(3);
+  const [moreToggle, setMoreToggle] = useState(false);
+
+  const handleMore = () => {
+    setMoreToggle(!moreToggle);
+  };
 
   return (
     <HomeContainer>
@@ -116,9 +121,18 @@ const Home = () => {
             gift={interest.gift}
           />
         ))}
+        {moreToggle &&
+          interestsSecond.map((interest) => (
+            <InterestSurvey
+              key={interest.id}
+              title={interest.title}
+              tag={interest.tag}
+              gift={interest.gift}
+            />
+          ))}
       </InterestsContainer>
-      <MoreButton>
-        <MoreImg src={more} />
+      <MoreButton onClick={handleMore}>
+        {!moreToggle && <MoreImg src={more} />}
       </MoreButton>
       <BottomBar />
     </HomeContainer>
