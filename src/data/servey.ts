@@ -1,4 +1,4 @@
-export const myServeys = [
+export const mySurveys = [
   {
     id: 1,
     title: '이색 콜라보 식품 구매 경험 및 인식',
@@ -58,5 +58,18 @@ export const interestSurveys = [
     title: '코로나19 이후 2030 우울감 정도',
     tag: '#20~30대  #일상',
     gift: 'coffee',
+  },
+];
+
+export const bestSurveys = [
+  {
+    id: 1,
+    title: '학교생활 적응 및 불안감 척도 조사',
+    recruitmentCount: 600,
+  },
+  {
+    id: 2,
+    title: '학교생활 적응 및 불안감 척도 조사',
+    recruitmentCount: 500,
   },
 ];

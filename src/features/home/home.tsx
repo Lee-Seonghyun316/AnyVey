@@ -9,7 +9,7 @@ import coin from '../../common/images/coin.png';
 import InterestSurvey from './interestSurvey';
 import BottomBar from '../bottomBar/bottomBar';
 import LogoutMySurvey from './logoutMySurvey';
-import { myServeys, interestSurveys } from '../../data/servey';
+import { mySurveys, interestSurveys } from '../../data/servey';
 const Home = () => {
   const interestsFirst = interestSurveys.slice(0, 4);
   const interestsSecond = interestSurveys.slice(3);
@@ -25,11 +25,11 @@ const Home = () => {
       <OngoingSurvey>
         <SectionTitleContainer>
           <SectionTitle>진행중인 설문 </SectionTitle>
-          {login && <Count>{myServeys.length}</Count>}
+          {login && <Count>{mySurveys.length}</Count>}
         </SectionTitleContainer>
         {login && (
-          <MySurveys>
-            {myServeys.map((mySurvey) => (
+          <Surveys>
+            {mySurveys.map((mySurvey) => (
               <MySurvey
                 key={mySurvey.id}
                 title={mySurvey.title}
@@ -39,7 +39,7 @@ const Home = () => {
                 gift={mySurvey.gift}
               />
             ))}
-          </MySurveys>
+          </Surveys>
         )}
         {!login && <LogoutMySurvey />}
       </OngoingSurvey>
@@ -104,7 +104,7 @@ const Count = styled.text`
   font-size: 16px;
 `;
 
-const MySurveys = styled.section`
+const Surveys = styled.section`
   display: flex;
   flex-direction: row;
   overflow: scroll;
