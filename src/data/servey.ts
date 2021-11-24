@@ -73,3 +73,13 @@ export const bestSurveys = [
     recruitmentCount: 500,
   },
 ];
+
+export const suggestionSurveys = [
+  {
+    id: 1,
+    title: '스마트 워치 사용자 대상 설문조사',
+    recruitment: 500,
+    description: '안녕하세요 하교 졸업논문 주제인 스마트 워치에 대해서 조사...',
+    tag: '#20~30대 #IT',
+  },
+];

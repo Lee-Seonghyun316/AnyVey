@@ -4,7 +4,9 @@ import BottomBar from '../bottomBar/bottomBar';
 import Header from '../header/header';
 import search from '../../common/images/search.png';
 import BestSurvey from './bestSurvey';
-import { bestSurveys } from '../../data/servey';
+import { bestSurveys, suggestionSurveys } from '../../data/servey';
+import SpeechBubble from '../../common/images/speechBubble.png';
+import RecommendSurvey from './recommendSurvey';
 
 const Reference = () => {
   return (
@@ -28,6 +30,19 @@ const Reference = () => {
           ))}
         </Surveys>
       </BestSurveysContainer>
+      <RecommendSurveysContainer>
+        <Title>추천 설문</Title>
+        {suggestionSurveys.map((item) => (
+          <RecommendSurvey
+            key={item.id}
+            title={item.title}
+            recruitment={item.recruitment}
+            description={item.description}
+            tag={item.tag}
+          />
+        ))}
+        <Line />
+      </RecommendSurveysContainer>
       <BottomBar path="reference" />
     </ReferenceContainer>
   );
@@ -58,12 +73,13 @@ const SearchImg = styled.img`
 `;
 
 const BestSurveysContainer = styled.section`
+  margin-bottom: 45px;
   padding: 20px 16px;
   background: #fff7f5;
 `;
 
 const Title = styled.h1`
-  font-weight: 600;
+  font-weight: 500;
   font-size: 16px;
   line-height: 22px;
   margin-bottom: 20px;
@@ -76,4 +92,15 @@ const StrongTitle = styled.span`
 const Surveys = styled.div`
   display: flex;
   justify-content: space-between;
+`;
+
+const RecommendSurveysContainer = styled.section`
+  padding: 0 16px;
+`;
+
+const Line = styled.div`
+  background: #f7f7f7;
+  width: 100%;
+  height: 1px;
+  margin: 16px 0;
 `;
