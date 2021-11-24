@@ -67,7 +67,7 @@ export default MySurvey;
 const Survey = styled.div`
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  padding: 16px;
+  padding: 16px 16px 7px 16px;
   width: 254px;
   margin-right: 11px;
 `;
@@ -109,6 +109,7 @@ const GraphDesTitle = styled.text`
 const SurveyDes = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   color: #b4b4b4;
   font-size: 12px;
 `;
