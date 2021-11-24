@@ -75,6 +75,7 @@ const Home = () => {
   const interestsFirst = interests.slice(0, 4);
   const interestsSecond = interests.slice(3);
   const [moreToggle, setMoreToggle] = useState(false);
+  const login = true;
 
   const handleMore = () => {
     setMoreToggle(!moreToggle);
@@ -86,20 +87,44 @@ const Home = () => {
       <OngoingSurvey>
         <SectionTitleContainer>
           <SectionTitle>진행중인 설문 </SectionTitle>
-          <Count>2</Count>
+          {login && <Count>{mySurveys.length}</Count>}
         </SectionTitleContainer>
-        <MySurveys>
-          {mySurveys.map((mySurvey) => (
-            <MySurvey
-              key={mySurvey.id}
-              title={mySurvey.title}
-              respondent={mySurvey.respondent}
-              recruitment={mySurvey.recruitment}
-              deadLine={mySurvey.deadLine}
-              gift={mySurvey.gift}
-            />
-          ))}
-        </MySurveys>
+
+        {login && (
+          <MySurveys>
+            {mySurveys.map((mySurvey) => (
+              <MySurvey
+                key={mySurvey.id}
+                title={mySurvey.title}
+                respondent={mySurvey.respondent}
+                recruitment={mySurvey.recruitment}
+                deadLine={mySurvey.deadLine}
+                gift={mySurvey.gift}
+              />
+            ))}
+          </MySurveys>
+        )}
+        {!login && (
+          <MySurveys>
+            <Survey>
+              <SurveyTitle>아직 진행 중인 설문이 없어요</SurveyTitle>
+              <SurveyDes>
+                로그인하고 간편하게 <br />
+                설문을 만들어 보아요!
+              </SurveyDes>
+              <LoginButton>로그인하고 설문지 만들기</LoginButton>
+            </Survey>
+            <Survey>
+              <SurveyTitle>설문 응답하고 마일리지 받자!</SurveyTitle>
+              <SurveyDes>
+                다른 사용자의 설문에 참여하면
+                <br />
+                마일리지를 받을 수 있어요
+              </SurveyDes>
+              <LoginButton>로그인하고 설문지 만들기</LoginButton>
+            </Survey>
+          </MySurveys>
+        )}
       </OngoingSurvey>
       <ResponseGain>
         <GainTitle>설문 응답시 마일리지 지급!</GainTitle>
@@ -224,4 +249,35 @@ const MoreButton = styled.div`
 const MoreImg = styled.img`
   width: 24px;
   height: 24px;
+`;
+
+const Survey = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 70px 16px 16px 16px;
+  width: 254px;
+  margin-right: 11px;
+`;
+
+const SurveyTitle = styled.h1`
+  font-weight: ${theme.typography.semiBold};
+  font-size: 16px;
+  margin-bottom: 24px;
+`;
+
+const SurveyDes = styled.text`
+  font-weight: ${theme.typography.regular};
+  font-size: 14px;
+  line-height: 19px;
+  margin-bottom: 71px;
+`;
+
+const LoginButton = styled.button`
+  background: linear-gradient(91.28deg, #f69738 -0.03%, #f4745f 99.97%);
+  border-radius: 8px;
+  height: 50px;
+  width: 222px;
 `;

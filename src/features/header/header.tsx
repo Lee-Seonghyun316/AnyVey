@@ -6,7 +6,7 @@ import alarmImage from '../../common/images/alarm.png';
 const Header = () => (
   <Head>
     <Logo src={typoLogo} />
-    {false && <Alarm onClick={() => console.log('alarm click')} />}
+    {true && <Alarm onClick={() => console.log('alarm click')} />}
   </Head>
 );
 
