@@ -82,4 +82,11 @@ export const suggestionSurveys = [
     description: '안녕하세요 하교 졸업논문 주제인 스마트 워치에 대해서 조사...',
     tag: '#20~30대 #IT',
   },
+  {
+    id: 2,
+    title: '스마트 워치 사용자 대상 설문조사',
+    recruitment: 500,
+    description: '안녕하세요 하교 졸업논문 주제인 스마트 워치에 대해서 조사...',
+    tag: '#20~30대 #IT',
+  },
 ];

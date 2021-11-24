@@ -26,6 +26,7 @@ const RecommendSurvey: React.FC<Props> = ({
       </RecommendTitleContainer>
       <RecommendDes>{description}</RecommendDes>
       <RecommendTag>{tag}</RecommendTag>
+      <Line />
     </Wrap>
   );
 };
@@ -81,6 +82,13 @@ const CountImg = styled.img`
   width: 13px;
   height: 13px;
   margin-right: 4px;
+`;
+
+const Line = styled.div`
+  background: #f7f7f7;
+  width: 100%;
+  height: 1px;
+  margin: 16px 0;
 `;
 
 export default RecommendSurvey;

@@ -5,7 +5,6 @@ import Header from '../header/header';
 import search from '../../common/images/search.png';
 import BestSurvey from './bestSurvey';
 import { bestSurveys, suggestionSurveys } from '../../data/servey';
-import SpeechBubble from '../../common/images/speechBubble.png';
 import RecommendSurvey from './recommendSurvey';
 
 const Reference = () => {
@@ -41,7 +40,6 @@ const Reference = () => {
             tag={item.tag}
           />
         ))}
-        <Line />
       </RecommendSurveysContainer>
       <BottomBar path="reference" />
     </ReferenceContainer>
@@ -96,11 +94,4 @@ const Surveys = styled.div`
 
 const RecommendSurveysContainer = styled.section`
   padding: 0 16px;
-`;
-
-const Line = styled.div`
-  background: #f7f7f7;
-  width: 100%;
-  height: 1px;
-  margin: 16px 0;
 `;
