@@ -5,14 +5,24 @@ import {
 } from 'react-circular-progressbar';
 import { theme } from '../../common/styles/theme';
 import styled from 'styled-components';
+import coffee from '../../common/images/coffee.png';
+import etc from '../../common/images/etc.png';
 
 interface Props {
   title: string;
   respondent: number;
   recruitment: number;
+  deadLine: string;
+  gift?: string;
 }
 
-const MySurvey: React.FC<Props> = ({ title, respondent, recruitment }) => {
+const MySurvey: React.FC<Props> = ({
+  title,
+  respondent,
+  recruitment,
+  deadLine,
+  gift,
+}) => {
   const percentage = (respondent / recruitment) * 100;
 
   return (
@@ -36,8 +46,17 @@ const MySurvey: React.FC<Props> = ({ title, respondent, recruitment }) => {
         </GraphDes>
       </GraphContainer>
       <SurveyDes>
-        <DeadLine>마감 2021.12.12</DeadLine>
-        <Gift>보상</Gift>
+        <DeadLine>마감 {deadLine}</DeadLine>
+        {gift && (
+          <Gift>
+            보상
+            {gift === 'coffee' ? (
+              <GiftImg src={coffee} />
+            ) : (
+              <GiftImg src={etc} />
+            )}
+          </Gift>
+        )}
       </SurveyDes>
     </Survey>
   );
@@ -49,7 +68,6 @@ const Survey = styled.div`
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   padding: 16px;
-  height: 291px;
   width: 254px;
   margin-right: 11px;
 `;
@@ -94,5 +112,18 @@ const SurveyDes = styled.div`
   color: #b4b4b4;
   font-size: 12px;
 `;
-const DeadLine = styled.div``;
-const Gift = styled.div``;
+const DeadLine = styled.div`
+  height: 30px;
+  display: flex;
+  align-items: center;
+`;
+const Gift = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+const GiftImg = styled.img`
+  width: 30px;
+  height: 30px;
+`;
