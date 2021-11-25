@@ -45,7 +45,7 @@ export default BottomBar;
 
 const Wrap = styled.footer`
   border-top: 1px solid #f1f1f1;
-  height: 84px;
+  height: 54px;
   display: flex;
   justify-content: space-around;
 `;
@@ -71,5 +71,5 @@ const PlusImg = styled.img`
   width: 50px;
   height: 50px;
   margin-bottom: 4px;
-  transform: translateY(-20px);
+  transform: translateY(-7px);
 `;
