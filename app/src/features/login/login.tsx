@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Logo from '../../common/images/loginLogo.png';
 import BasicButton from '../../common/components/BasicButton';
 
+interface PropsCSS {
+  Error: boolean;
+}
+
 const Login = () => {
+  const [idError, setIdError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
   return (
     <Wrap>
       <LoginTitleContainer>
@@ -11,7 +17,13 @@ const Login = () => {
         <LoginTitle>로그인</LoginTitle>
       </LoginTitleContainer>
       <Input placeholder="아이디" />
+      <IdErrorMessage Error={idError}>
+        {idError && '가입하지 않은 이용자 입니다'}
+      </IdErrorMessage>
       <Input placeholder="비밀번호" />
+      <IdErrorMessage Error={passwordError}>
+        {passwordError && '비밀번호를 확인하세요'}
+      </IdErrorMessage>
       <MenuContainer>
         <MenuButton>회원가입</MenuButton>
         <MenuButton>비밀번호 찾기</MenuButton>
@@ -51,11 +63,20 @@ const LoginTitle = styled.h1`
 `;
 
 const Input = styled.input`
-  border-bottom: 1px solid #d5d5d5;
   ${({ theme }) => theme.typography.regular};
   font-size: 16px;
   line-height: 22px;
-  margin-bottom: 40px;
+`;
+
+const IdErrorMessage = styled.span<PropsCSS>`
+  ${({ theme }) => theme.typography.regular};
+  color: ${({ theme }) => theme.colors.coral};
+  border-top: 1px solid
+    ${({ theme, Error }) => (Error ? theme.colors.coral : '#d5d5d5')};
+  font-size: 17px;
+  line-height: 23px;
+  margin-bottom: 10px;
+  height: 40px;
 `;
 
 const MenuContainer = styled.div`
