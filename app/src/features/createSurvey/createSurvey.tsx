@@ -98,7 +98,6 @@ const Button = styled.button`
   line-height: 19px;
   background: #ffffff;
   border: 1px solid #d6d6d6;
-  box-sizing: border-box;
   border-radius: 6px;
   color: #d6d6d6;
   width: 78px;
