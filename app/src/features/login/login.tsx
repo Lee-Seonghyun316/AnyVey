@@ -43,7 +43,7 @@ const LogoIma = styled.img`
   margin-bottom: 23px;
 `;
 const LoginTitle = styled.h1`
-  font-weight: 600;
+  font-weight: ${({ theme }) => theme.typography.semiBold};
   font-size: 18px;
   line-height: 25px;
   margin-bottom: 102px;
@@ -51,7 +51,7 @@ const LoginTitle = styled.h1`
 
 const Input = styled.input`
   border-bottom: 1px solid #d5d5d5;
-  font-weight: normal;
+  font-weight: ${({ theme }) => theme.typography.regular};
   font-size: 16px;
   line-height: 22px;
   margin-bottom: 40px;
@@ -64,13 +64,13 @@ const MenuContainer = styled.div`
 `;
 
 const MenuButton = styled.button`
-  font-weight: normal;
+  font-weight: ${({ theme }) => theme.typography.regular};
   font-size: 14px;
   line-height: 19px;
 `;
 
 const LoginButton = styled.button`
-  font-weight: 600;
+  font-weight: ${({ theme }) => theme.typography.semiBold};
   font-size: 16px;
   line-height: 22px;
   color: #ffffff;
@@ -82,7 +82,7 @@ const LoginButton = styled.button`
 
 const MoveHomeBtn = styled.button`
   margin-top: 48px;
-  font-weight: normal;
+  font-weight: ${({ theme }) => theme.typography.regular};
   font-size: 16px;
   line-height: 22px;
   text-decoration-line: underline;
