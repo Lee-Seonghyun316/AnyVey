@@ -6,7 +6,7 @@ import coffee from '../../common/images/coffee.png';
 
 interface Props {
   title: string;
-  tag: string;
+  tag: any;
   gift?: string;
 }
 
@@ -15,7 +15,7 @@ const InterestSurvey: React.FC<Props> = ({ title, tag, gift }) => {
     <Interest>
       {gift && (gift === 'coffee' ? <Gift src={coffee} /> : <Gift src={etc} />)}
       <InterestTitle>{title}</InterestTitle>
-      <InterestTag>{tag}</InterestTag>
+      <InterestTag>{tag.join(' ')}</InterestTag>
       <InvolveButton>참여하기</InvolveButton>
     </Interest>
   );
