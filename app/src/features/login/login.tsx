@@ -16,7 +16,7 @@ const Login = () => {
         <MenuButton>회원가입</MenuButton>
         <MenuButton>비밀번호 찾기</MenuButton>
       </MenuContainer>
-      <BasicButton text="로그인" disable={false} />
+      <BasicButton text="로그인" disable={true} />
       <MoveHomeBtn>둘러보기</MoveHomeBtn>
     </Wrap>
   );

@@ -6,17 +6,21 @@ interface Props {
   disable: boolean;
 }
 
+interface PropsCSS {
+  disable: boolean;
+}
+
 const BasicButton: React.FC<Props> = ({ text, disable }) => {
-  return <Wrap>{text}</Wrap>;
+  return <Wrap disable={disable}>{text}</Wrap>;
 };
 
-const Wrap = styled.button`
-  ${({ theme }) => theme.typography.semiBold};
+const Wrap = styled.button<PropsCSS>`
+  ${({ theme, disable }) => theme.typography.semiBold};
   font-size: 16px;
   line-height: 22px;
   color: #ffffff;
   height: 48px;
-  background: ${(disable) =>
+  background: ${({ disable }) =>
     disable
       ? 'linear-gradient(91.28deg, #f69738 -0.03%, #f4745f 99.97%)'
       : 'linear-gradient(0deg, #C4C4C4, #C4C4C4), #B8B8B8'};
