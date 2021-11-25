@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Logo from '../../common/images/loginLogo.png';
+import BasicButton from '../../common/components/BasicButton';
 
 const Login = () => {
   return (
@@ -15,7 +16,7 @@ const Login = () => {
         <MenuButton>회원가입</MenuButton>
         <MenuButton>비밀번호 찾기</MenuButton>
       </MenuContainer>
-      <LoginButton>로그인</LoginButton>
+      <BasicButton text="로그인" disable={false} />
       <MoveHomeBtn>둘러보기</MoveHomeBtn>
     </Wrap>
   );
@@ -67,17 +68,6 @@ const MenuButton = styled.button`
   ${({ theme }) => theme.typography.regular};
   font-size: 14px;
   line-height: 19px;
-`;
-
-const LoginButton = styled.button`
-  ${({ theme }) => theme.typography.semiBold};
-  font-size: 16px;
-  line-height: 22px;
-  color: #ffffff;
-  height: 48px;
-  background: linear-gradient(91.28deg, #f69738 -0.03%, #f4745f 99.97%);
-  box-shadow: 0px 4px 17px rgba(0, 0, 0, 0.14);
-  border-radius: 8px;
 `;
 
 const MoveHomeBtn = styled.button`
