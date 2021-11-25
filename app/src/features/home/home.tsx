@@ -93,12 +93,12 @@ const SectionTitleContainer = styled.div`
 `;
 
 const SectionTitle = styled.text`
-  font-weight: ${({ theme }) => theme.typography.medium};
+  ${({ theme }) => theme.typography.medium};
   font-size: 16px;
 `;
 
 const Count = styled.text`
-  font-weight: ${({ theme }) => theme.typography.medium};
+  ${({ theme }) => theme.typography.medium};
   color: ${({ theme }) => theme.colors.orange};
   font-size: 16px;
 `;
@@ -124,7 +124,7 @@ const GainContent = styled.div`
 `;
 
 const GainTitle = styled.div`
-  font-weight: ${({ theme }) => theme.typography.semiBold};
+  ${({ theme }) => theme.typography.semiBold};
   font-size: 18px;
   margin-bottom: 8px;
 `;
@@ -135,7 +135,7 @@ const GainImg = styled.img`
 `;
 
 const GainDes = styled.div`
-  font-weight: ${({ theme }) => theme.typography.regular};
+  ${({ theme }) => theme.typography.regular};
   font-size: 12px;
   line-height: 16px;
   color: #b4b4b4;
@@ -150,7 +150,7 @@ const InterestsContainer = styled.section`
 
 const InterestsTitle = styled.div`
   padding: 23px 16px 8px 16px;
-  font-weight: ${({ theme }) => theme.typography.medium};
+  ${({ theme }) => theme.typography.medium};
   font-size: 16px;
   line-height: 22px;
   color: #2b2b2b;

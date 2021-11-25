@@ -34,7 +34,7 @@ const Interest = styled.div`
 `;
 
 const InterestTitle = styled.h1`
-  font-weight: ${theme.typography.semiBold};
+  ${({ theme }) => theme.colors.semiBold};
   font-size: 14px;
   line-height: 19px;
   color: #2b2b2b;
@@ -42,18 +42,18 @@ const InterestTitle = styled.h1`
 `;
 
 const InterestTag = styled.text`
-  font-weight: ${theme.typography.regular};
+  ${({ theme }) => theme.typography.regular};
   font-size: 12px;
   line-height: 16px;
   color: #b4b4b4;
 `;
 
 const InvolveButton = styled.button`
-  font-weight: ${theme.typography.semiBold};
+  ${({ theme }) => theme.typography.regular};
   font-size: 12px;
   line-height: 16px;
-  color: ${theme.colors.orange};
-  border: 1px solid ${theme.colors.orange};
+  ${({ theme }) => theme.colors.orange};
+  border: 1px solid ${({ theme }) => theme.colors.orange};
   border-radius: 5px;
   position: absolute;
   right: 14px;

@@ -72,7 +72,7 @@ const Survey = styled.div`
 `;
 
 const SurveyTitle = styled.div`
-  font-weight: ${({ theme }) => theme.typography.semiBold};
+  ${({ theme }) => theme.typography.semiBold};
   font-size: 18px;
 `;
 
@@ -91,7 +91,7 @@ const GraphSize = styled.div`
 
 const GraphText = styled.div`
   color: ${({ theme }) => theme.colors.orange};
-  font-weight: ${({ theme }) => theme.typography.bold};
+  ${({ theme }) => theme.typography.bold};
   font-size: 20px;
 `;
 
