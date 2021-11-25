@@ -6,6 +6,7 @@ import Reference from '../../common/images/bottomReference.png';
 import ReferenceOn from '../../common/images/bottoemReferenceOn.png';
 import MySurvey from '../../common/images/bottomMySurvey.png';
 import User from '../../common/images/bottomUser.png';
+import Plus from '../../common/images/plusButton.png';
 import { theme } from '../../common/styles/theme';
 
 interface Props {
@@ -25,6 +26,9 @@ const BottomBar: React.FC<Props> = ({ path }) => {
           <Img src={Reference} />
         )}
         자료실
+      </Button>
+      <Button>
+        <PlusImg src={Plus} />
       </Button>
       <Button>
         {path === 'mySurvey' ? <Img src={HomeOn} /> : <Img src={MySurvey} />}
@@ -61,4 +65,11 @@ const Img = styled.img`
   width: 22px;
   height: 22px;
   margin-bottom: 4px;
+`;
+
+const PlusImg = styled.img`
+  width: 50px;
+  height: 50px;
+  margin-bottom: 4px;
+  transform: translateY(-20px);
 `;
