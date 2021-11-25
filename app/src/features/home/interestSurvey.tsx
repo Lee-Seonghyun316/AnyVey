@@ -7,7 +7,7 @@ import coffee from '../../common/images/coffee.png';
 interface Props {
   title: string;
   tag: any;
-  gift?: string;
+  gift: string | null;
 }
 
 const InterestSurvey: React.FC<Props> = ({ title, tag, gift }) => {

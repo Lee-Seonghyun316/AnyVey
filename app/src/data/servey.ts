@@ -21,6 +21,7 @@ export const mySurveys = [
     respondent: 50,
     recruitment: 100,
     deadLine: '2021.12.12',
+    gift: null,
   },
 ];
 
@@ -29,6 +30,7 @@ export const interestSurveys = [
     id: 1,
     title: '제로(0kcal)음료에 대한 인식',
     tag: ['#20~30대', '#일상'],
+    gift: null,
   },
   {
     id: 2,
@@ -40,6 +42,7 @@ export const interestSurveys = [
     id: 3,
     title: '헬스케어 플랫폼 설문조사',
     tag: ['#20~30대', '#IT'],
+    gift: null,
   },
   {
     id: 4,

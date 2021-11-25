@@ -13,7 +13,7 @@ interface Props {
   respondent: number;
   recruitment: number;
   deadLine: string;
-  gift?: string;
+  gift: string | null;
 }
 
 const MySurvey: React.FC<Props> = ({
