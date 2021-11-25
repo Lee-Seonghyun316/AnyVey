@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import Header from '../header/header';
-import BottomBar from '../bottomBar/bottomBar';
 import { fields, gifts, targetAges, targetGender } from '../../data/category';
 
 const CreateSurvey = () => {
@@ -137,7 +136,7 @@ const NoticeText = styled.div`
 const MarginContainer = styled.div`
   margin: 0 16px;
 `;
-const BottomText = styled.text`
+const BottomText = styled.button`
   font-weight: 500;
   font-size: 14px;
   line-height: 19px;
@@ -147,5 +146,6 @@ const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
   height: 88.1px;
-  padding: 13px 16px 0 16px;
+  padding: 0 16px;
+  height: 54px;
 `;
