@@ -5,12 +5,12 @@ import Logo from '../../common/images/loginLogo.png';
 const Login = () => {
   return (
     <Wrap>
-      <LogoIma src={Logo} />
-      <LoginTitle>로그인</LoginTitle>
-      <Form>
-        <IdInput placeholder="아이디" />
-        <PasswordInput placeholder="비밀번호" />
-      </Form>
+      <LoginTitleContainer>
+        <LogoIma src={Logo} />
+        <LoginTitle>로그인</LoginTitle>
+      </LoginTitleContainer>
+      <Input placeholder="아이디" />
+      <Input placeholder="비밀번호" />
       <MenuContainer>
         <MenuButton>회원가입</MenuButton>
         <MenuButton>비밀번호 찾기</MenuButton>
@@ -24,12 +24,17 @@ const Login = () => {
 export default Login;
 
 const Wrap = styled.section`
+  justify-content: center;
   height: 100vh;
+  padding: 0 16px;
   display: flex;
   flex-direction: column;
-  margin: 16px 0;
+`;
+
+const LoginTitleContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
 `;
 
 const LogoIma = styled.img`
@@ -44,22 +49,18 @@ const LoginTitle = styled.h1`
   margin-bottom: 102px;
 `;
 
-const Form = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const IdInput = styled.input`
+const Input = styled.input`
   border-bottom: 1px solid #d5d5d5;
-`;
-
-const PasswordInput = styled.input`
-  border-bottom: 1px solid #d5d5d5;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  margin-bottom: 40px;
 `;
 
 const MenuContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  margin: 16px 0 4px 0;
 `;
 
 const MenuButton = styled.button`
@@ -80,6 +81,7 @@ const LoginButton = styled.button`
 `;
 
 const MoveHomeBtn = styled.button`
+  margin-top: 48px;
   font-weight: normal;
   font-size: 16px;
   line-height: 22px;
