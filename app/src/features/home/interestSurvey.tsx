@@ -51,8 +51,7 @@ const InterestTag = styled.text`
 const InvolveButton = styled.button`
   ${({ theme }) => theme.typography.regular};
   font-size: 12px;
-  line-height: 16px;
-  ${({ theme }) => theme.colors.orange};
+  color: ${({ theme }) => theme.colors.orange};
   border: 1px solid ${({ theme }) => theme.colors.orange};
   border-radius: 5px;
   position: absolute;
