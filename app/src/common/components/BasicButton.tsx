@@ -10,9 +10,9 @@ interface PropsCSS {
   disable: boolean;
 }
 
-const BasicButton: React.FC<Props> = ({ text, disable }) => {
-  return <Wrap disable={disable}>{text}</Wrap>;
-};
+const BasicButton: React.FC<Props> = ({ text, disable }) => (
+  <Wrap disable={disable}>{text}</Wrap>
+);
 
 const Wrap = styled.button<PropsCSS>`
   ${({ theme, disable }) => theme.typography.semiBold};
