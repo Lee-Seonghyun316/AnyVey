@@ -3,7 +3,6 @@ import {
   buildStyles,
   CircularProgressbarWithChildren,
 } from 'react-circular-progressbar';
-import { theme } from '../../common/styles/theme';
 import styled from 'styled-components';
 import coffee from '../../common/images/coffee.png';
 import etc from '../../common/images/etc.png';
@@ -13,7 +12,7 @@ interface Props {
   respondent: number;
   recruitment: number;
   deadLine: string;
-  gift?: string;
+  gift: string | null;
 }
 
 const MySurvey: React.FC<Props> = ({
@@ -33,7 +32,7 @@ const MySurvey: React.FC<Props> = ({
           <CircularProgressbarWithChildren
             value={percentage}
             styles={buildStyles({
-              pathColor: `${theme.colors.orange}`,
+              pathColor: `#F69738`,
               trailColor: '#F1F1F1',
             })}
           >
@@ -73,7 +72,7 @@ const Survey = styled.div`
 `;
 
 const SurveyTitle = styled.div`
-  font-weight: ${theme.typography.semiBold};
+  ${({ theme }) => theme.typography.semiBold};
   font-size: 18px;
 `;
 
@@ -91,8 +90,8 @@ const GraphSize = styled.div`
 `;
 
 const GraphText = styled.div`
-  color: ${theme.colors.orange};
-  font-weight: ${theme.typography.bold};
+  color: ${({ theme }) => theme.colors.orange};
+  ${({ theme }) => theme.typography.bold};
   font-size: 20px;
 `;
 
