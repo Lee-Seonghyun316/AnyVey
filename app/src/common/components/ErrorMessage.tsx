@@ -5,15 +5,17 @@ interface Props {
   error: boolean;
   text: string;
   width?: string;
+  align?: boolean;
 }
 
 interface PropsCSS {
   error: boolean;
   width?: string;
+  align?: boolean;
 }
 
-const ErrorMessage: React.FC<Props> = ({ error, text, width }) => (
-  <IdErrorMessage error={error} width={width}>
+const ErrorMessage: React.FC<Props> = ({ error, text, width, align }) => (
+  <IdErrorMessage error={error} width={width} align={align}>
     {error && text}
   </IdErrorMessage>
 );
@@ -30,4 +32,5 @@ const IdErrorMessage = styled.span<PropsCSS>`
   margin-bottom: 10px;
   height: 40px;
   width: ${({ width }) => (width ? width : '100%')};
+  text-align: ${({ align }) => (align ? 'center' : 'left')};
 `;

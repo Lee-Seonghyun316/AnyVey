@@ -6,6 +6,7 @@ import Reference from './features/reference/reference';
 import CreateSurvey from './features/createSurvey/createSurvey';
 import Login from './features/login/login';
 import Join from './features/join/join';
+import EmailAuth from './features/emailAuth/EmailAuth';
 import BottomBar from 'features/bottomBar/bottomBar';
 import { useState } from 'react';
 import SubmitModal from 'common/components/SubmitModal';
@@ -36,6 +37,8 @@ const App = function () {
           path="/*"
           element={<BottomBar setIsModalOpen={setIsModalOpen} path="" />}
         />
+        <Route path="join" element={<Join />} />
+        <Route path="email-auth" element={<EmailAuth />} />
       </Routes>
       <SubmitModal
         isOpen={isModalOpen}
