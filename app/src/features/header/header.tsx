@@ -7,13 +7,14 @@ import backImage from '../../common/images/back.png';
 
 interface Props {
   path?: string;
+  title?: string;
 }
-const Header: React.FC<Props> = ({ path }) => (
+const Header: React.FC<Props> = ({ path, title }) => (
   <Wrap>
     {path === 'back&title' ? (
       <HeadCenterTitle>
         <Back />
-        <Title>회원가입</Title>
+        <Title>{title}</Title>
       </HeadCenterTitle>
     ) : (
       <Head>
