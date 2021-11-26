@@ -55,6 +55,10 @@ const Wrap = styled.footer`
   height: 54px;
   display: flex;
   justify-content: space-around;
+  position: sticky;
+  bottom: 0;
+  width: 100vw;
+  background-color: white;
 `;
 
 const Button = styled.button`
