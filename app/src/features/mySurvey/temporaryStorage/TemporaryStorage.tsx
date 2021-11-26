@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import HeaderContainer from '../../header/HeaderContainer';
 import backImage from '../../../common/images/back.png';
+import { temporarySurvey } from '../../../data/servey';
 
 const TemporaryStorage = () => {
   return (
@@ -11,10 +12,12 @@ const TemporaryStorage = () => {
         <TextButton>편집</TextButton>
       </HeaderContainer>
       <Content>
-        <Survey>
-          <Title>도서(전자책) 관련 앱 서비스 이용 경험 조사</Title>
-          <Date>등록 2021.11.05</Date>
-        </Survey>
+        {temporarySurvey.map((item) => (
+          <Survey key={item.id}>
+            <Title>{item.title}</Title>
+            <Date>등록 {item.deadLine}</Date>
+          </Survey>
+        ))}
       </Content>
     </Wrap>
   );
