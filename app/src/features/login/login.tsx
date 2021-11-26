@@ -1,28 +1,56 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Logo from '../../common/images/loginLogo.png';
 import BasicButton from '../../common/components/BasicButton';
 import ErrorMessage from '../../common/components/ErrorMessage';
+import { useNavigate } from 'react-router-dom';
+import useInput from '../../common/util/useInput';
+import { emailCheck, passwordCheck } from '../../common/util/auth';
 
 const Login = () => {
   const [idError, setIdError] = useState(true);
   const [passwordError, setPasswordError] = useState(false);
+  const navigate = useNavigate();
+  const [loginDisable, setLoginDisable] = useState(false);
+  const idInput = useInput('');
+  const passwordInput = useInput('');
+  const handleLogin = () => {
+    if (emailCheck(idInput.value)) {
+      if (passwordCheck(passwordInput.value)) {
+        setLoginDisable(true);
+      }
+    }
+  };
+  useEffect(() => {
+    handleLogin();
+  }, [idInput.value]);
+
   return (
     <Wrap>
       <LoginTitleContainer>
         <LogoIma src={Logo} />
         <LoginTitle>로그인</LoginTitle>
       </LoginTitleContainer>
-      <Input placeholder="아이디" />
+      <Input
+        placeholder="아이디"
+        type="text"
+        value={idInput.value}
+        onChange={idInput.onChange}
+      />
       <ErrorMessage error={idError} text="가입하지 않은 이용자 입니다" />
-      <Input placeholder="비밀번호" />
+      <Input
+        placeholder="비밀번호"
+        type="text"
+        value={passwordInput.value}
+        onChange={passwordInput.onChange}
+      />
       <ErrorMessage error={passwordError} text="비밀번호를 확인하세요" />
       <MenuContainer>
         <MenuButton>회원가입</MenuButton>
         <MenuButton>비밀번호 찾기</MenuButton>
       </MenuContainer>
-      <BasicButton text="로그인" disable={true} />
-      <MoveHomeBtn>둘러보기</MoveHomeBtn>
+      <BasicButton text="로그인" disable={loginDisable} />
+      <MoveHomeBtn onClick={() => navigate('/')}>둘러보기</MoveHomeBtn>
     </Wrap>
   );
 };
