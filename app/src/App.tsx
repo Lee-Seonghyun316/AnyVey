@@ -6,6 +6,7 @@ import Reference from './features/reference/reference';
 import CreateSurvey from './features/createSurvey/createSurvey';
 import Login from './features/login/login';
 import Join from './features/join/join';
+import EmailAuth from './features/emailAuth/EmailAuth';
 
 const App = function () {
   return (
@@ -16,6 +17,7 @@ const App = function () {
         <Route path="create-survey" element={<CreateSurvey />} />
         <Route path="login" element={<Login />} />
         <Route path="join" element={<Join />} />
+        <Route path="email-auth" element={<EmailAuth />} />
       </Routes>
     </BrowserRouter>
   );
