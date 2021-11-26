@@ -149,3 +149,30 @@ export const temporarySurvey = [
     gift: null,
   },
 ];
+
+export const historySurvey = [
+  {
+    id: 1,
+    title: '도서(전자책) 관련 앱 서비스 이용 경험 조사',
+    respondent: 500,
+    recruitment: 500,
+    deadLine: '2021.10.31',
+    gift: null,
+  },
+  {
+    id: 2,
+    title: '도서(전자책) 관련 앱 서비스 이용 경험 조사',
+    respondent: 500,
+    recruitment: 500,
+    deadLine: '2021.10.31',
+    gift: null,
+  },
+  {
+    id: 3,
+    title: '도서(전자책) 관련 앱 서비스 이용 경험 조사',
+    respondent: 500,
+    recruitment: 500,
+    deadLine: '2021.10.31',
+    gift: null,
+  },
+];
