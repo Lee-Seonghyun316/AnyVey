@@ -7,15 +7,18 @@ import { store } from './app/store';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './common/styles/theme';
 import GlobalStyle from './common/styles/global';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
   <Fragment>
-    <GlobalStyle />
-    <ThemeProvider theme={theme}>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </ThemeProvider>
+    <BrowserRouter>
+      <GlobalStyle />
+      <ThemeProvider theme={theme}>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </ThemeProvider>
+    </BrowserRouter>
   </Fragment>,
   document.getElementById('root'),
 );

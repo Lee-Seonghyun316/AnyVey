@@ -10,10 +10,13 @@ import Plus from '../../common/images/plusButton.png';
 import { theme } from '../../common/styles/theme';
 
 interface Props {
+  setIsModalOpen?: React.Dispatch<React.SetStateAction<boolean>> | void;
   path: string;
 }
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+const noop = () => {};
 
-const BottomBar: React.FC<Props> = ({ path }) => {
+const BottomBar: React.FC<Props> = ({ path, setIsModalOpen = noop }) => {
   return (
     <Wrap>
       <Button>
@@ -27,7 +30,11 @@ const BottomBar: React.FC<Props> = ({ path }) => {
         )}
         자료실
       </Button>
-      <Button>
+      <Button
+        onClick={() => {
+          setIsModalOpen(true);
+        }}
+      >
         <PlusImg src={Plus} />
       </Button>
       <Button>
