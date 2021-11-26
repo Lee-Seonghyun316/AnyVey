@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Reference from './features/reference/reference';
 import CreateSurvey from './features/createSurvey/createSurvey';
 import Login from './features/login/login';
+import Join from './features/join/join';
 
 const App = function () {
   return (
@@ -14,6 +15,7 @@ const App = function () {
         <Route path="reference" element={<Reference />} />
         <Route path="create-survey" element={<CreateSurvey />} />
         <Route path="login" element={<Login />} />
+        <Route path="join" element={<Join />} />
       </Routes>
     </BrowserRouter>
   );
