@@ -10,7 +10,7 @@ import RecommendSurvey from './recommendSurvey';
 const Reference = () => {
   return (
     <ReferenceContainer>
-      <Header path="reference" />
+      <Header style="thickTitle" title="자료실" />
       <SearchContainer>
         <SearchImg src={search} />
         <SearchForm placeholder="키워드를 입력하세요" />

@@ -20,7 +20,7 @@ const Home = () => {
 
   return (
     <HomeContainer>
-      <Header path="home" />
+      <Header style="home" />
       <OngoingSurvey>
         <SectionTitleContainer>
           <SectionTitle>진행중인 설문 </SectionTitle>
