@@ -5,13 +5,16 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import Reference from './features/reference/reference';
 import CreateSurvey from './features/createSurvey/createSurvey';
 import Login from './features/login/login';
+import Join from './features/join/join';
+import EmailAuth from './features/join/emailAuth/EmailAuth';
 import BasicInfo from './features/join/basicInformation/BasicInfo';
 import Search from './features/reference/search/Search';
-import Join from './features/join/join';
-import EmailAuth from './features/emailAuth/EmailAuth';
+import ReferenceDetail from './features/reference/referenceDetail/ReferenceDetail';
 import BottomBar from 'features/bottomBar/bottomBar';
 import { useState } from 'react';
 import SubmitModal from 'common/components/SubmitModal';
+import MySurvey from './features/mySurvey/MySurvey';
+import TemporaryStorage from './features/mySurvey/temporaryStorage/TemporaryStorage';
 
 const App = function () {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -35,7 +38,14 @@ const App = function () {
         <Route path="email-auth" element={<EmailAuth />} />
         <Route path="basic-info" element={<BasicInfo />} />
         <Route path="search" element={<Search />} />
+        <Route path="reference-detail" element={<ReferenceDetail />} />
         <Route path="join" element={<Join />} />
+        <Route path="email-auth" element={<EmailAuth />} />
+        <Route path="basic-info" element={<BasicInfo />} />
+        <Route path="search" element={<Search />} />
+        <Route path="join" element={<Join />} />
+        <Route path="my-survey" element={<MySurvey />} />
+        <Route path="temporary-storage" element={<TemporaryStorage />} />
       </Routes>
       <Routes>
         <Route path="create-survey" />

@@ -100,3 +100,52 @@ export const suggestionSurveys = [
     tag: '#20~30대 #IT',
   },
 ];
+
+export const completeMySurvey = [
+  {
+    id: 1,
+    title: '도서(전자책) 관련 앱 서비스 이용 경험 조사',
+    respondent: 500,
+    recruitment: 500,
+    deadLine: '2021.10.31',
+    gift: null,
+  },
+];
+
+export const onGoingMySurvey = [
+  {
+    id: 1,
+    title: '이색 콜라보 식품 구매 경험 및 인식',
+    respondent: 82,
+    recruitment: 100,
+    deadLine: '2021.12.12',
+    gift: 'etc',
+  },
+  {
+    id: 2,
+    title: '이색 콜라보 식품 구매 경험 및 인식',
+    respondent: 50,
+    recruitment: 100,
+    deadLine: '2021.12.12',
+    gift: 'hamburger',
+  },
+];
+
+export const temporarySurvey = [
+  {
+    id: 1,
+    title: '도서(전자책) 관련 앱 서비스 이용 경험 조사',
+    respondent: 500,
+    recruitment: 500,
+    deadLine: '2021.10.31',
+    gift: null,
+  },
+  {
+    id: 2,
+    title: '도서(전자책) 관련 앱 서비스 이용 경험 조사',
+    respondent: 500,
+    recruitment: 500,
+    deadLine: '2021.10.31',
+    gift: null,
+  },
+];

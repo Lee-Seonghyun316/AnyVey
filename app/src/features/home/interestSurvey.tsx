@@ -1,19 +1,26 @@
 import React from 'react';
 import etc from '../../common/images/etc.png';
 import styled from 'styled-components';
-import { theme } from '../../common/styles/theme';
 import coffee from '../../common/images/coffee.png';
+import hamburger from '../../common/images/hamburger.png';
 
 interface Props {
   title: string;
-  tag: any;
+  tag: string[];
   gift: string | null;
 }
 
 const InterestSurvey: React.FC<Props> = ({ title, tag, gift }) => {
   return (
     <Interest>
-      {gift && (gift === 'coffee' ? <Gift src={coffee} /> : <Gift src={etc} />)}
+      {gift &&
+        (gift === 'coffee' ? (
+          <Gift src={coffee} />
+        ) : gift === 'hamburger' ? (
+          <Gift src={hamburger} />
+        ) : (
+          <Gift src={etc} />
+        ))}
       <InterestTitle>{title}</InterestTitle>
       <InterestTag>{tag.join(' ')}</InterestTag>
       <InvolveButton>참여하기</InvolveButton>
@@ -64,6 +71,6 @@ const Gift = styled.img`
   top: 0;
   right: 0;
   transform: translate(14px, -16px);
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 `;

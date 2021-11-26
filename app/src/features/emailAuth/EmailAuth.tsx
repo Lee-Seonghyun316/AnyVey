@@ -8,7 +8,7 @@ const EmailAuth = () => {
   const [certificationError, setCertificationError] = useState(false);
   return (
     <Wrap>
-      <Header path="back&title" />
+      <Header headerStyle="back&title" />
       <Content>
         <Form>
           <Explanation>
