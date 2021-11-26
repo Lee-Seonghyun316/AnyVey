@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from '../header/header';
-import BasicButton from '../../common/components/BasicButton';
+import Header from '../../header/header';
+import BasicButton from '../../../common/components/BasicButton';
 import styled from 'styled-components';
-import { fields, targetAges, targetGender } from '../../data/category';
+import { fields, targetAges, targetGender } from '../../../data/category';
 
 const BasicInfo = () => {
   const fieldsExceptIrrelevant = fields.filter((item) => item !== '무관');

@@ -6,8 +6,8 @@ import Reference from './features/reference/reference';
 import CreateSurvey from './features/createSurvey/createSurvey';
 import Login from './features/login/login';
 import Join from './features/join/join';
-import EmailAuth from './features/emailAuth/EmailAuth';
-import BasicInfo from './features/basicInformation/BasicInfo';
+import EmailAuth from './features/join/emailAuth/EmailAuth';
+import BasicInfo from './features/join/basicInformation/BasicInfo';
 
 const App = function () {
   return (

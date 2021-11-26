@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import ErrorMessage from '../../common/components/ErrorMessage';
-import BasicButton from '../../common/components/BasicButton';
-import Header from '../header/header';
+import ErrorMessage from '../../../common/components/ErrorMessage';
+import BasicButton from '../../../common/components/BasicButton';
+import Header from '../../header/header';
 
 const EmailAuth = () => {
   const [certificationError, setCertificationError] = useState(false);
