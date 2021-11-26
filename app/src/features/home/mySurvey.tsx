@@ -6,6 +6,7 @@ import {
 import styled from 'styled-components';
 import coffee from '../../common/images/coffee.png';
 import etc from '../../common/images/etc.png';
+import hamburger from '../../common/images/hamburger.png';
 
 interface Props {
   title: string;
@@ -49,11 +50,14 @@ const MySurvey: React.FC<Props> = ({
         {gift && (
           <Gift>
             보상
-            {gift === 'coffee' ? (
-              <GiftImg src={coffee} />
-            ) : (
-              <GiftImg src={etc} />
-            )}
+            {gift &&
+              (gift === 'coffee' ? (
+                <GiftImg src={coffee} />
+              ) : gift === 'hamburger' ? (
+                <GiftImg src={hamburger} />
+              ) : (
+                <GiftImg src={etc} />
+              ))}
           </Gift>
         )}
       </SurveyDes>
@@ -108,7 +112,7 @@ const GraphDesTitle = styled.text`
 const SurveyDes = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   color: #b4b4b4;
   font-size: 12px;
 `;
@@ -124,6 +128,7 @@ const Gift = styled.div`
 `;
 
 const GiftImg = styled.img`
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
+  margin-left: 7px;
 `;

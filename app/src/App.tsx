@@ -13,6 +13,8 @@ import ReferenceDetail from './features/reference/referenceDetail/ReferenceDetai
 import BottomBar from 'features/bottomBar/bottomBar';
 import { useState } from 'react';
 import SubmitModal from 'common/components/SubmitModal';
+import MySurvey from './features/mySurvey/MySurvey';
+import TemporaryStorage from './features/mySurvey/temporaryStorage/TemporaryStorage';
 
 const App = function () {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -42,6 +44,8 @@ const App = function () {
         <Route path="basic-info" element={<BasicInfo />} />
         <Route path="search" element={<Search />} />
         <Route path="join" element={<Join />} />
+        <Route path="my-survey" element={<MySurvey />} />
+        <Route path="temporary-storage" element={<TemporaryStorage />} />
       </Routes>
       <Routes>
         <Route path="create-survey" />
