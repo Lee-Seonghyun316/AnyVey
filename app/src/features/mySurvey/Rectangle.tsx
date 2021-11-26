@@ -5,7 +5,7 @@ import {
 } from 'react-circular-progressbar';
 import styled from 'styled-components';
 import coffee from '../../common/images/coffee.png';
-import hamburger from '../../common/images/hamberger.png';
+import hamburger from '../../common/images/hamburger.png';
 import etc from '../../common/images/etc.png';
 
 interface Props {
@@ -116,6 +116,6 @@ const Gift = styled.img`
   top: 0;
   right: 0;
   transform: translate(14px, -16px);
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 `;
