@@ -9,7 +9,7 @@ const Search = () => {
   const [result, setResult] = useState(false);
   return (
     <Wrap>
-      <Header style="back&title" title="검색결과" />
+      <Header headerStyle="back&title" title="검색결과" />
       <SearchContainer>
         <SearchImg src={search} />
         <SearchForm placeholder="키워드를 입력하세요" />

@@ -6,7 +6,7 @@ import { fields, gifts, targetAges, targetGender } from '../../data/category';
 const CreateSurvey = () => {
   return (
     <Wrap>
-      <Header style="next" />
+      <Header headerStyle="next" />
       <Content>
         <TitleInput placeholder="제목" />
         <Contour />

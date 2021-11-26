@@ -6,21 +6,21 @@ import nextImage from '../../common/images/next.png';
 import backImage from '../../common/images/back.png';
 
 interface Props {
-  style?: string;
+  headerStyle?: string;
   title?: string;
 }
-const Header: React.FC<Props> = ({ style, title }) => (
+const Header: React.FC<Props> = ({ headerStyle, title }) => (
   <Wrap>
-    {style === 'back&title' ? (
+    {headerStyle === 'back&title' ? (
       <HeadCenterTitle>
         <Back />
         <Title>{title}</Title>
       </HeadCenterTitle>
     ) : (
       <Head>
-        {style === 'home' && <Logo src={typoLogo} />}
-        {style === 'thickTitle' && <TitleThick>{title}</TitleThick>}
-        {style === 'next' && <Next />}
+        {headerStyle === 'home' && <Logo src={typoLogo} />}
+        {headerStyle === 'thickTitle' && <TitleThick>{title}</TitleThick>}
+        {headerStyle === 'next' && <Next />}
         {false && <Alarm onClick={() => console.log('alarm click')} />}
       </Head>
     )}
