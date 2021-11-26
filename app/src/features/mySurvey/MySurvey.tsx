@@ -36,6 +36,10 @@ const MySurvey = () => {
           />
         ))}
       </OnGoing>
+      <ButtonContainer>
+        <Button>임시저장</Button>
+        <Button>설문 내역</Button>
+      </ButtonContainer>
     </Wrap>
   );
 };
@@ -63,4 +67,21 @@ const SurveyCount = styled.span`
   font-size: 16px;
   line-height: 22px;
   color: #f69738;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 16px;
+`;
+
+const Button = styled.button`
+  width: 165px;
+  height: 47px;
+  background: #f7f7f7;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  color: #2b2b2b;
 `;
