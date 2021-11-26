@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import Header from '../header/header';
 import 'react-circular-progressbar/dist/styles.css';
@@ -6,9 +6,9 @@ import MySurvey from './mySurvey';
 import more from '../../common/images/more.png';
 import coin from '../../common/images/coin.png';
 import InterestSurvey from './interestSurvey';
-import BottomBar from '../bottomBar/bottomBar';
 import LogoutMySurvey from './logoutMySurvey';
 import { mySurveys, interestSurveys } from '../../data/servey';
+
 const Home = () => {
   const interestsFirst = interestSurveys.slice(0, 4);
   const interestsSecond = interestSurveys.slice(3);
@@ -75,7 +75,6 @@ const Home = () => {
       <MoreButton onClick={handleMore}>
         {!moreToggle && <MoreImg src={more} />}
       </MoreButton>
-      <BottomBar path="home" />
     </HomeContainer>
   );
 };
