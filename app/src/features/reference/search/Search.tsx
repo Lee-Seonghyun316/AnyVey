@@ -49,7 +49,9 @@ const Search = () => {
 
 export default Search;
 
-const Wrap = styled.section``;
+const Wrap = styled.section`
+  height: 100vh;
+`;
 
 const SearchContainer = styled.div`
   display: flex;

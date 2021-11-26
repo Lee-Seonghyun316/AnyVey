@@ -59,6 +59,7 @@ const Wrap = styled.footer`
   bottom: 0;
   width: 100vw;
   background-color: white;
+  z-index: 99999;
 `;
 
 const Button = styled.button`

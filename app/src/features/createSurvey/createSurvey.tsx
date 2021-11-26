@@ -147,4 +147,8 @@ const Bottom = styled.div`
   height: 88.1px;
   padding: 0 16px;
   height: 54px;
+  position: sticky;
+  bottom: 0px;
+  background: white;
+  z-index: 99999;
 `;

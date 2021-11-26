@@ -46,7 +46,9 @@ const MySurvey = () => {
 
 export default MySurvey;
 
-const Wrap = styled.section``;
+const Wrap = styled.section`
+  height: 100vh;
+`;
 
 const Closed = styled.div`
   margin-bottom: 40px;
