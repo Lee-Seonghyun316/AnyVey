@@ -5,8 +5,8 @@ import styled from 'styled-components';
 import { fields, targetAges, targetGender } from '../../../data/category';
 
 const BasicInfo = () => {
-  const fieldsExceptIrrelevant = fields.filter((item) => item !== '무관');
-  const ageExceptAll = targetAges.filter((item) => item !== '전체');
+  const fieldsExceptIrrelevant = fields.filter(({ text }) => text !== '무관');
+  const ageExceptAll = targetAges.filter(({ text }) => text !== '전체');
   const genderExceptAll = targetGender.filter((item) => item !== '전체');
   return (
     <Wrap>
@@ -22,14 +22,14 @@ const BasicInfo = () => {
           </Explanation>
           <Title>관련 분야</Title>
           <ButtonContainer>
-            {fieldsExceptIrrelevant.map((item) => (
-              <Button key={item}>{item}</Button>
+            {fieldsExceptIrrelevant.map(({ text }) => (
+              <Button key={text}>{text}</Button>
             ))}
           </ButtonContainer>
           <Title>타겟 연령대</Title>
           <ButtonContainer>
-            {ageExceptAll.map((item) => (
-              <Button key={item}>{item}</Button>
+            {ageExceptAll.map(({ text }) => (
+              <Button key={text}>{text}</Button>
             ))}
           </ButtonContainer>
           <Title>타겟 성별</Title>
