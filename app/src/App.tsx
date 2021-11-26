@@ -12,6 +12,7 @@ import Search from './features/reference/search/Search';
 import ReferenceDetail from './features/reference/referenceDetail/ReferenceDetail';
 import MySurvey from './features/mySurvey/MySurvey';
 import TemporaryStorage from './features/mySurvey/temporaryStorage/TemporaryStorage';
+import SurveyHistory from './features/mySurvey/surveyHistory/SurveyHistory';
 
 const App = function () {
   return (
@@ -28,6 +29,7 @@ const App = function () {
         <Route path="reference-detail" element={<ReferenceDetail />} />
         <Route path="my-survey" element={<MySurvey />} />
         <Route path="temporary-storage" element={<TemporaryStorage />} />
+        <Route path="survey-history" element={<SurveyHistory />} />
       </Routes>
     </BrowserRouter>
   );

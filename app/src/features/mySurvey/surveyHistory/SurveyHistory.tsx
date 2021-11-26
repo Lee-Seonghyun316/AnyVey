@@ -1,26 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import HeaderContainer from '../../header/HeaderContainer';
 import { historySurvey } from '../../../data/servey';
 import styled from 'styled-components';
 import backImage from '../../../common/images/back.png';
 
-const SurveyHistory = () => (
-  <Wrap>
-    <HeaderContainer title="설문내역">
-      <Back />
-      <TextButton>편집</TextButton>
-    </HeaderContainer>
-    <Content>
-      {historySurvey.map((item) => (
-        <Survey key={item.id}>
-          <Title>{item.title}</Title>
-          <Date>등록 {item.deadLine}</Date>
-        </Survey>
-      ))}
-    </Content>
-  </Wrap>
-);
-
+const SurveyHistory = () => {
+  const [edit, setEdit] = useState(false);
+  return (
+    <Wrap>
+      <HeaderContainer title="설문내역">
+        <Back />
+        {edit ? <TextButton>편집</TextButton> : <TextButton>완료</TextButton>}
+      </HeaderContainer>
+      <Content>
+        {historySurvey.map((item) => (
+          <Survey key={item.id}>
+            <Title>{item.title}</Title>
+            <Date>등록 {item.deadLine}</Date>
+          </Survey>
+        ))}
+      </Content>
+    </Wrap>
+  );
+};
 export default SurveyHistory;
 
 const Wrap = styled.section`
@@ -47,6 +49,7 @@ const Content = styled.div`
 `;
 
 const Survey = styled.div`
+  position: relative;
   background: #ffffff;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
