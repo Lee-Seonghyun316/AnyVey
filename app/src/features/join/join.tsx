@@ -15,7 +15,7 @@ const Join = () => {
 
   return (
     <Wrap>
-      <Header path="back&title" title="회원가입" />
+      <Header headerStyle="back&title" title="회원가입" />
       <Content>
         <Form>
           <Explanation>

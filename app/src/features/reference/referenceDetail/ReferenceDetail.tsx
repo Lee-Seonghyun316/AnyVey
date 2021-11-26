@@ -7,7 +7,7 @@ import SpeechBubble from '../../../common/images/speechBubble.png';
 const ReferenceDetail = () => {
   return (
     <Wrap>
-      <Header path="back&title" />
+      <Header headerStyle="back&title" />
       <Content>
         <Survey>
           <SurveyContainer>
