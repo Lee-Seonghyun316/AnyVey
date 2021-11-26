@@ -17,7 +17,7 @@ const App = function () {
     setIsModalOpen(false);
   };
   const handleConfirm = () => {
-    navigate('/createSurvey');
+    navigate('/create-survey');
     setIsModalOpen(false);
   };
   return (
@@ -29,7 +29,7 @@ const App = function () {
         <Route path="login" element={<Login />} />
       </Routes>
       <Routes>
-        <Route path="createSurvey" />
+        <Route path="create-survey" />
         <Route
           path="/*"
           element={<BottomBar setIsModalOpen={setIsModalOpen} path="" />}
