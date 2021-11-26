@@ -33,6 +33,10 @@ const SubmitModal = ({ isOpen, children, onClose, onConfirm }: Props) => (
     style={customStyles}
     contentLabel="Example Modal"
     preventScroll={true}
+    onRequestClose={() => {
+      onClose();
+    }}
+    shouldCloseOnOverlayClick={true}
   >
     <Wrapper>
       <Content>{children}</Content>

@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Home from './features/home/home';
-import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import Reference from './features/reference/reference';
 import CreateSurvey from './features/createSurvey/createSurvey';
 import Login from './features/login/login';
@@ -10,8 +10,6 @@ import { useState } from 'react';
 import SubmitModal from 'common/components/SubmitModal';
 
 const App = function () {
-  const location = useLocation();
-  console.log(location);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
