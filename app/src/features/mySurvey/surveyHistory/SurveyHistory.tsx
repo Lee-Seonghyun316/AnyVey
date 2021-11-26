@@ -1,17 +1,17 @@
 import React from 'react';
-import styled from 'styled-components';
 import HeaderContainer from '../../header/HeaderContainer';
+import { historySurvey } from '../../../data/servey';
+import styled from 'styled-components';
 import backImage from '../../../common/images/back.png';
-import { temporarySurvey } from '../../../data/servey';
 
-const TemporaryStorage = () => (
+const SurveyHistory = () => (
   <Wrap>
-    <HeaderContainer title="임시저장">
+    <HeaderContainer title="설문내역">
       <Back />
       <TextButton>편집</TextButton>
     </HeaderContainer>
     <Content>
-      {temporarySurvey.map((item) => (
+      {historySurvey.map((item) => (
         <Survey key={item.id}>
           <Title>{item.title}</Title>
           <Date>등록 {item.deadLine}</Date>
@@ -21,7 +21,7 @@ const TemporaryStorage = () => (
   </Wrap>
 );
 
-export default TemporaryStorage;
+export default SurveyHistory;
 
 const Wrap = styled.section`
   display: flex;
