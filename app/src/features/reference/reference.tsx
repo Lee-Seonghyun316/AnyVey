@@ -41,7 +41,6 @@ const Reference = () => {
           />
         ))}
       </RecommendSurveysContainer>
-      <BottomBar path="reference" />
     </ReferenceContainer>
   );
 };

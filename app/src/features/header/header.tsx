@@ -27,7 +27,12 @@ const Header: React.FC<Props> = ({ headerStyle, title }) => (
   </Wrap>
 );
 
-const Wrap = styled.div``;
+const Wrap = styled.div`
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 99999;
+`;
 
 const Head = styled.header`
   display: flex;

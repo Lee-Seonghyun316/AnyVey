@@ -40,24 +40,19 @@ const App = function () {
         <Route path="basic-info" element={<BasicInfo />} />
         <Route path="search" element={<Search />} />
         <Route path="reference-detail" element={<ReferenceDetail />} />
+        <Route path="join" element={<Join />} />
+        <Route path="email-auth" element={<EmailAuth />} />
+        <Route path="basic-info" element={<BasicInfo />} />
+        <Route path="search" element={<Search />} />
+        <Route path="join" element={<Join />} />
         <Route path="my-survey" element={<MySurvey />} />
         <Route path="temporary-storage" element={<TemporaryStorage />} />
         <Route path="survey-history" element={<SurveyHistory />} />
-        <Route path="join" element={<Join />} />
-        <Route path="email-auth" element={<EmailAuth />} />
-        <Route path="basic-info" element={<BasicInfo />} />
-        <Route path="search" element={<Search />} />
-        <Route path="reference-detail" element={<ReferenceDetail />} />
-        <Route path="join" element={<Join />} />
-        <Route path="email-auth" element={<EmailAuth />} />
-        <Route path="basic-info" element={<BasicInfo />} />
-        <Route path="search" element={<Search />} />
-        <Route path="join" element={<Join />} />
-        <Route path="my-survey" element={<MySurvey />} />
-        <Route path="temporary-storage" element={<TemporaryStorage />} />
       </Routes>
       <Routes>
         <Route path="create-survey" />
+        <Route path="login" />
+        <Route path="reference-detail" />
         <Route
           path="/*"
           element={<BottomBar setIsModalOpen={setIsModalOpen} path="" />}
