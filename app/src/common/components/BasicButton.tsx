@@ -15,7 +15,7 @@ const BasicButton: React.FC<Props> = ({ text, disable }) => (
 );
 
 const Wrap = styled.button<PropsCSS>`
-  ${({ theme, disable }) => theme.typography.semiBold};
+  ${({ theme }) => theme.typography.semiBold};
   font-size: 16px;
   line-height: 22px;
   color: #ffffff;

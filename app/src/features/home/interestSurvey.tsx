@@ -6,7 +6,7 @@ import hamburger from '../../common/images/hamburger.png';
 
 interface Props {
   title: string;
-  tag: any;
+  tag: string[];
   gift: string | null;
 }
 
