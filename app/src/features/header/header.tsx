@@ -8,7 +8,6 @@ import backImage from '../../common/images/back.png';
 interface Props {
   path?: string;
 }
-
 const Header: React.FC<Props> = ({ path }) => (
   <Wrap>
     {path === 'back&title' ? (
