@@ -7,6 +7,7 @@ interface Props {
   recruitment: number;
   description: string;
   tag: string;
+  onClick: () => void;
 }
 
 const RecommendSurvey: React.FC<Props> = ({
@@ -14,9 +15,10 @@ const RecommendSurvey: React.FC<Props> = ({
   recruitment,
   description,
   tag,
+  onClick,
 }) => {
   return (
-    <Wrap>
+    <Wrap onClick={onClick}>
       <RecommendTitleContainer>
         <RecommendTitle>{title}</RecommendTitle>
         <Recruitment>

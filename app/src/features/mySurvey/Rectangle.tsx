@@ -14,6 +14,7 @@ interface Props {
   respondent: number;
   deadline: string;
   gift: string | null;
+  onClick: () => void;
 }
 
 const Rectangle: React.FC<Props> = ({
@@ -22,9 +23,10 @@ const Rectangle: React.FC<Props> = ({
   respondent,
   gift,
   deadline,
+  onClick,
 }) => {
   return (
-    <Wrap>
+    <Wrap onClick={onClick}>
       <SurveyText>
         <SurveyTitle>{title}</SurveyTitle>
         <SurveyDes>

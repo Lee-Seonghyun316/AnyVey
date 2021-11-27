@@ -12,6 +12,7 @@ import LogoutMySurvey from './logoutMySurvey';
 import { interestSurveys } from '../../data/servey';
 import axios from 'axios';
 import ErrorBoundary from 'common/components/ErrorBoundary';
+import { useNavigate } from 'react-router-dom';
 
 type Survey = {
   id: number;
@@ -84,6 +85,7 @@ const Home = () => {
 export default Home;
 
 const SurveyList = () => {
+  const navigate = useNavigate();
   const { data: surveys, error } = useQuery(['forms'], async () => {
     const response = await axios.get('http://localhost:8080/surveys');
     return response.data;
@@ -105,6 +107,9 @@ const SurveyList = () => {
             recruitment={mySurvey.recruitment}
             deadLine={mySurvey.deadLine}
             gift={mySurvey.gift}
+            onClick={() => {
+              navigate(`/my-survey/${mySurvey.id}`);
+            }}
           />
         ))}
       </Surveys>

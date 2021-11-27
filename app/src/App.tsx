@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Home from './features/home/home';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Reference from './features/reference/reference';
 import CreateSurvey from './features/createSurvey/createSurvey';
 import Login from './features/login/login';
@@ -34,6 +34,8 @@ const App = function () {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="reference" element={<Reference />} />
+        <Route path="reference/:id" element={<ReferenceDetail />} />
+
         <Route path="create-survey" element={<CreateSurvey />} />
         <Route path="login" element={<Login />} />
         <Route path="join" element={<Join />} />
@@ -47,6 +49,7 @@ const App = function () {
         <Route path="search" element={<Search />} />
         <Route path="join" element={<Join />} />
         <Route path="my-survey" element={<MySurvey />} />
+        <Route path="my-survey/:id" element={<ReferenceDetail />} />
         <Route path="temporary-storage" element={<TemporaryStorage />} />
         <Route path="survey-history" element={<SurveyHistory />} />
       </Routes>
@@ -56,7 +59,7 @@ const App = function () {
         <Route path="reference-detail" />
         <Route
           path="/*"
-          element={<BottomBar setIsModalOpen={setIsModalOpen} path="" />}
+          element={<BottomBar setIsModalOpen={setIsModalOpen} />}
         />
         <Route path="join" element={<Join />} />
         <Route path="email-auth" element={<EmailAuth />} />
