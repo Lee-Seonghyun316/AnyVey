@@ -12,11 +12,11 @@ interface Props {
 }
 
 interface CSSProps {
-  headerStyle: string;
+  headerStyle?: string;
 }
 
 const Header: React.FC<Props> = ({ headerStyle, title, onClick }) => (
-  <Wrap>
+  <Wrap headerStyle={headerStyle}>
     {headerStyle === 'back&title' ? (
       <HeadCenterTitle>
         <Back />
@@ -40,10 +40,11 @@ const Header: React.FC<Props> = ({ headerStyle, title, onClick }) => (
   </Wrap>
 );
 
-const Wrap = styled.div`
+const Wrap = styled.div<CSSProps>`
   position: sticky;
   top: 0;
-  background: white;
+  background: ${({ headerStyle }) =>
+    headerStyle === 'next' ? '#FFF5EB' : 'white'};
   z-index: 99999;
 `;
 
