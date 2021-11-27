@@ -49,6 +49,22 @@ export const targetAges = ['10대', '20대', '30대', '40대', '50대', '전체'
   }),
 );
 
-export const targetGender = ['남성', '여성', '전체'];
+export const targetGender = [
+  {
+    id: 1,
+    value: 'man',
+    text: '남성',
+  },
+  {
+    id: 2,
+    value: 'woman',
+    text: '여성',
+  },
+  {
+    id: 3,
+    value: 'all',
+    text: '전체',
+  },
+];
 
 export const gifts = ['커피', '햄버거', '기타'];
