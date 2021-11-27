@@ -24,4 +24,4 @@ app.use((error, req, res, next) => {
   res.status(500).json({ message: 'Something went wrong' });
 });
 
-app.listen(8080);
+app.listen(8080, () => console.log('8080'));
