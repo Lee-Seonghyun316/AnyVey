@@ -85,6 +85,8 @@ const SurveyList = () => {
     const response = await axios.get('http://localhost:8080/surveys');
     return response.data;
   });
+
+  if (error) return null;
   return (
     <>
       <SectionTitleContainer>
