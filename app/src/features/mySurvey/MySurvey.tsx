@@ -3,8 +3,13 @@ import styled from 'styled-components';
 import Header from '../header/header';
 import Rectangle from './Rectangle';
 import { completeMySurvey, onGoingMySurvey } from '../../data/servey';
+import { useNavigate } from 'react-router-dom';
 
 const MySurvey = () => {
+  const navigate = useNavigate();
+  const handleSurveyClick = (id: number) => {
+    navigate(`/my-survey/${id}`);
+  };
   return (
     <Wrap>
       <Header headerStyle="thickTitle" title="내설문" />
@@ -18,6 +23,9 @@ const MySurvey = () => {
             recruitment={item.recruitment}
             deadline={item.deadLine}
             gift={item.gift}
+            onClick={() => {
+              handleSurveyClick(item.id);
+            }}
           />
         ))}
       </Closed>
@@ -33,6 +41,9 @@ const MySurvey = () => {
             recruitment={item.recruitment}
             deadline={item.deadLine}
             gift={item.gift}
+            onClick={() => {
+              handleSurveyClick(item.id);
+            }}
           />
         ))}
       </OnGoing>

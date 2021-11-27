@@ -4,36 +4,40 @@ import typoLogo from '../../common/images/typoLogo.png';
 import alarmImage from '../../common/images/alarm.png';
 import nextImage from '../../common/images/next.png';
 import backImage from '../../common/images/back.png';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   headerStyle?: string;
   title?: string;
   onClick?: (event: MouseEvent) => void;
 }
-const Header: React.FC<Props> = ({ headerStyle, title, onClick }) => (
-  <Wrap>
-    {headerStyle === 'back&title' ? (
-      <HeadCenterTitle>
-        <Back />
-        <Title>{title}</Title>
-      </HeadCenterTitle>
-    ) : (
-      <Head>
-        {headerStyle === 'home' && <Logo src={typoLogo} />}
-        {headerStyle === 'thickTitle' && <TitleThick>{title}</TitleThick>}
-        {headerStyle === 'prev' && (
-          <Next onClick={(e) => onClick && onClick(e)} />
-        )}
-        {headerStyle === 'next' && (
-          <Back onClick={(e) => onClick && onClick(e)} />
-        )}
-        {headerStyle === 'next' && <Enroll>등록</Enroll>}
+const Header: React.FC<Props> = ({ headerStyle, title, onClick }) => {
+  const navigate = useNavigate();
+  return (
+    <Wrap>
+      {headerStyle === 'back&title' ? (
+        <HeadCenterTitle>
+          <Back onClick={() => navigate(-1)} />
+          <Title>{title}</Title>
+        </HeadCenterTitle>
+      ) : (
+        <Head>
+          {headerStyle === 'home' && <Logo src={typoLogo} />}
+          {headerStyle === 'thickTitle' && <TitleThick>{title}</TitleThick>}
+          {headerStyle === 'prev' && (
+            <Next onClick={(e) => onClick && onClick(e)} />
+          )}
+          {headerStyle === 'next' && (
+            <Back onClick={(e) => onClick && onClick(e)} />
+          )}
+          {headerStyle === 'next' && <Enroll>등록</Enroll>}
 
-        {false && <Alarm onClick={() => console.log('alarm click')} />}
-      </Head>
-    )}
-  </Wrap>
-);
+          {false && <Alarm onClick={() => console.log('alarm click')} />}
+        </Head>
+      )}
+    </Wrap>
+  );
+};
 
 const Wrap = styled.div`
   position: sticky;
