@@ -55,6 +55,7 @@ const GlobalStyle = createGlobalStyle`
   width: 130px;
   box-shadow: 0px 0px 11px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
+  transform: translateX(-50px);
   }
 `;
 export default GlobalStyle;
