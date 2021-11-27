@@ -30,8 +30,6 @@ const Home = () => {
     setMoreToggle(!moreToggle);
   };
 
-  // if (error) return null;
-
   return (
     <Suspense fallback={<span>loading</span>}>
       <HomeContainer>
@@ -85,6 +83,8 @@ const SurveyList = () => {
     const response = await axios.get('http://localhost:8080/surveys');
     return response.data;
   });
+
+  if (error) return null;
   return (
     <>
       <SectionTitleContainer>
