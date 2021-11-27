@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import styled from 'styled-components';
 import typoLogo from '../../common/images/typoLogo.png';
 import alarmImage from '../../common/images/alarm.png';
@@ -8,8 +8,9 @@ import backImage from '../../common/images/back.png';
 interface Props {
   headerStyle?: string;
   title?: string;
+  onClick?: (event: MouseEvent) => void;
 }
-const Header: React.FC<Props> = ({ headerStyle, title }) => (
+const Header: React.FC<Props> = ({ headerStyle, title, onClick }) => (
   <Wrap>
     {headerStyle === 'back&title' ? (
       <HeadCenterTitle>
@@ -20,7 +21,14 @@ const Header: React.FC<Props> = ({ headerStyle, title }) => (
       <Head>
         {headerStyle === 'home' && <Logo src={typoLogo} />}
         {headerStyle === 'thickTitle' && <TitleThick>{title}</TitleThick>}
-        {headerStyle === 'next' && <Next />}
+        {headerStyle === 'prev' && (
+          <Next onClick={(e) => onClick && onClick(e)} />
+        )}
+        {headerStyle === 'next' && (
+          <Back onClick={(e) => onClick && onClick(e)} />
+        )}
+        {headerStyle === 'next' && <Enroll>등록</Enroll>}
+
         {false && <Alarm onClick={() => console.log('alarm click')} />}
       </Head>
     )}
@@ -93,6 +101,19 @@ const Back = styled.button`
   background-image: url(${backImage});
   background-repeat: no-repeat;
   background-size: cover;
+`;
+
+const Enroll = styled.span`
+  position: absolute;
+  right: 13px;
+  width: 20px;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 19px;
+  letter-spacing: 0em;
+  white-space: nowrap;
+  ${({ theme }) => theme.typography.regular};
+  text-align: left;
 `;
 
 export default Header;

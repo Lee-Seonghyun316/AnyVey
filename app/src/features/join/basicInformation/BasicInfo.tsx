@@ -7,7 +7,7 @@ import { fields, targetAges, targetGender } from '../../../data/category';
 const BasicInfo = () => {
   const fieldsExceptIrrelevant = fields.filter(({ text }) => text !== '무관');
   const ageExceptAll = targetAges.filter(({ text }) => text !== '전체');
-  const genderExceptAll = targetGender.filter((item) => item !== '전체');
+  const genderExceptAll = targetGender.filter(({ text }) => text !== '전체');
   return (
     <Wrap>
       <Header headerStyle="back&title" title="회원가입" />
@@ -34,8 +34,8 @@ const BasicInfo = () => {
           </ButtonContainer>
           <Title>타겟 성별</Title>
           <ButtonContainer>
-            {genderExceptAll.map((item) => (
-              <Button key={item}>{item}</Button>
+            {genderExceptAll.map(({ text }) => (
+              <Button key={text}>{text}</Button>
             ))}
           </ButtonContainer>
         </Form>

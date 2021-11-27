@@ -1,100 +1,162 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import Header from '../header/header';
 import { fields, gifts, targetAges, targetGender } from '../../data/category';
 import { Controller, useForm } from 'react-hook-form';
 
+const PREV = 'prev';
+const NEXT = 'next';
+
 const CreateSurvey = () => {
+  const [curPage, setCurPage] = useState(PREV);
   const { register, handleSubmit, control } = useForm();
 
   return (
     <Wrap>
-      <Header headerStyle="next" />
-      <Content>
-        <TitleInput {...register('title')} placeholder="제목" />
-        <Contour />
-        <DesInput {...register('description')} placeholder="세부 설명" />
-        <Contour />
-        <Title>관련 분야</Title>
-        <ButtonContainer>
-          {fields.map(({ id, value, text }) => (
-            <Controller
-              key={id}
-              name="category"
-              control={control}
-              render={({ field }) => (
-                <Button
-                  onClick={(e) => {
-                    if (!field.value) {
-                      field.onChange([value]);
-                      return;
-                    }
-                    !field.value.includes(value)
-                      ? field.onChange(field.value.concat(value))
-                      : field.onChange(
-                          field.value.filter((item: string) => item !== value),
-                        );
-                  }}
-                  checked={field.value?.includes(value)}
-                >
-                  {text}
-                </Button>
-              )}
-            />
-          ))}
-        </ButtonContainer>
-        <Title>타겟 연령대</Title>
-        <ButtonContainer>
-          {targetAges.map(({ id, value, text }) => (
-            <Controller
-              key={id}
-              name="target"
-              control={control}
-              render={({ field }) => (
-                <Button
-                  onClick={(e) => {
-                    if (!field.value) {
-                      field.onChange(value);
-                      return;
-                    }
-                    field.value === value
-                      ? field.onChange(null)
-                      : field.onChange(value);
-                  }}
-                  checked={field.value?.includes(value)}
-                >
-                  {text}
-                </Button>
-              )}
-            />
-          ))}
-        </ButtonContainer>
-        <Title>타겟 성별</Title>
-        <ButtonContainer>
-          {targetGender.map((item) => (
-            <Button key={item}>{item}</Button>
-          ))}
-        </ButtonContainer>
-        <Title>목표 응답자 수</Title>
-        <CountContainer>
-          <CountInput placeholder="응답자 수" />
-          <NoticeText>최대 500명</NoticeText>
-        </CountContainer>
-      </Content>
-      <Title>종료 일정</Title>
-      <DeadLine>2021.11.14</DeadLine>
-      <Title>보상 제공 여부</Title>
-      <MarginContainer>
-        <NoticeText>
-          보상은 서비스측에서 제공되는 것이 아닌, 작성자 측에서 응답자를
-          추첨하여 개인적으로 전달하는 것입니다.
-        </NoticeText>
-      </MarginContainer>
-      <ButtonContainer>
-        {gifts.map((item) => (
-          <Button key={item}>{item}</Button>
-        ))}
-      </ButtonContainer>
+      <Header
+        headerStyle={curPage}
+        onClick={() => {
+          setCurPage((cur) => [PREV, NEXT].find((v) => v !== cur) || PREV);
+        }}
+      />
+      {curPage === PREV ? (
+        <>
+          <Content>
+            <TitleInput {...register('title')} placeholder="제목" />
+            <Contour />
+            <DesInput {...register('description')} placeholder="세부 설명" />
+            <Contour />
+            <Title>관련 분야</Title>
+            <ButtonContainer>
+              {fields.map(({ id, value, text }) => (
+                <Controller
+                  key={id}
+                  name="category"
+                  control={control}
+                  render={({ field }) => (
+                    <Button
+                      onClick={(e) => {
+                        if (!field.value) {
+                          field.onChange([value]);
+                          return;
+                        }
+                        !field.value.includes(value)
+                          ? field.onChange(field.value.concat(value))
+                          : field.onChange(
+                              field.value.filter(
+                                (item: string) => item !== value,
+                              ),
+                            );
+                      }}
+                      checked={field.value?.includes(value)}
+                    >
+                      {text}
+                    </Button>
+                  )}
+                />
+              ))}
+            </ButtonContainer>
+            <Title>타겟 연령대</Title>
+            <ButtonContainer>
+              {targetAges.map(({ id, value, text }) => (
+                <Controller
+                  key={id}
+                  name="targetAge"
+                  control={control}
+                  render={({ field }) => (
+                    <Button
+                      onClick={(e) => {
+                        if (!field.value) {
+                          field.onChange([value]);
+                          return;
+                        }
+                        !field.value.includes(value)
+                          ? field.onChange(field.value.concat(value))
+                          : field.onChange(
+                              field.value.filter(
+                                (item: string) => item !== value,
+                              ),
+                            );
+                      }}
+                      checked={field.value?.includes(value)}
+                    >
+                      {text}
+                    </Button>
+                  )}
+                />
+              ))}
+            </ButtonContainer>
+            <Title>타겟 성별</Title>
+            <ButtonContainer>
+              {targetGender.map(({ id, value, text }) => (
+                <Controller
+                  key={id}
+                  name="targetGender"
+                  control={control}
+                  render={({ field }) => (
+                    <Button
+                      onClick={(e) => {
+                        if (!field.value) {
+                          field.onChange(value);
+                          return;
+                        }
+                        field.value === value
+                          ? field.onChange(null)
+                          : field.onChange(value);
+                      }}
+                      checked={field.value === value}
+                    >
+                      {text}
+                    </Button>
+                  )}
+                />
+              ))}
+            </ButtonContainer>
+            <Title>목표 응답자 수</Title>
+            <CountContainer>
+              <CountInput
+                placeholder="응답자 수"
+                {...register('responderNum')}
+              />
+              <NoticeText>최대 500명</NoticeText>
+            </CountContainer>
+          </Content>
+          <Title>종료 일정</Title>
+          <DeadLine>2021.11.14</DeadLine>
+          <Title>보상 제공 여부</Title>
+          <MarginContainer>
+            <NoticeText>
+              보상은 서비스측에서 제공되는 것이 아닌, 작성자 측에서 응답자를
+              추첨하여 개인적으로 전달하는 것입니다.
+            </NoticeText>
+          </MarginContainer>
+          <ButtonContainer>
+            {gifts.map((value) => (
+              <Controller
+                key={value}
+                name="gift"
+                control={control}
+                render={({ field }) => (
+                  <Button
+                    onClick={(e) => {
+                      if (!field.value) {
+                        field.onChange(value);
+                        return;
+                      }
+                      field.value === value
+                        ? field.onChange(null)
+                        : field.onChange(value);
+                    }}
+                    checked={field.value === value}
+                  >
+                    {value}
+                  </Button>
+                )}
+              />
+            ))}
+          </ButtonContainer>
+        </>
+      ) : null}
       <Bottom>
         <BottomText>취소</BottomText>
         <BottomText onClick={handleSubmit((data) => console.log(data))}>
