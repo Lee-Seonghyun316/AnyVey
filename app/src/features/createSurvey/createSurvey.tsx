@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import Header from '../header/header';
 import { fields, gifts, targetAges, targetGender } from '../../data/category';
 import { Controller, useForm } from 'react-hook-form';
+import SecondSurvey from './secondSurvey';
 
 const PREV = 'prev';
 const NEXT = 'next';
@@ -156,7 +157,11 @@ const CreateSurvey = () => {
             ))}
           </ButtonContainer>
         </>
-      ) : null}
+      ) : (
+        <Wrap>
+          <SecondSurvey />
+        </Wrap>
+      )}
       <Bottom>
         <BottomText>취소</BottomText>
         <BottomText onClick={handleSubmit((data) => console.log(data))}>

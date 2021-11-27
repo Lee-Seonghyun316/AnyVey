@@ -10,6 +10,11 @@ interface Props {
   title?: string;
   onClick?: (event: MouseEvent) => void;
 }
+
+interface CSSProps {
+  headerStyle: string;
+}
+
 const Header: React.FC<Props> = ({ headerStyle, title, onClick }) => (
   <Wrap>
     {headerStyle === 'back&title' ? (

@@ -42,5 +42,19 @@ const GlobalStyle = createGlobalStyle`
     color: #d6d6d6;
   }
   }
+  .rdn-control{
+  border: none;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  width: 90px;
+  padding-right: 30px;
+  }
+  .rdn-drop{
+  border: none;
+  width: 130px;
+  box-shadow: 0px 0px 11px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  }
 `;
 export default GlobalStyle;
