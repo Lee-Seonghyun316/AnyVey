@@ -1,30 +1,3 @@
-export const mySurveys = [
-  {
-    id: 1,
-    title: '이색 콜라보 식품 구매 경험 및 인식',
-    respondent: 82,
-    recruitment: 100,
-    deadLine: '2021.12.12',
-    gift: 'etc',
-  },
-  {
-    id: 2,
-    title: '이색 콜라보 식품 구매 경험 및 인식',
-    respondent: 50,
-    recruitment: 100,
-    deadLine: '2021.12.12',
-    gift: 'coffee',
-  },
-  {
-    id: 3,
-    title: '이색 콜라보 식품 구매 경험 및 인식',
-    respondent: 50,
-    recruitment: 100,
-    deadLine: '2021.12.12',
-    gift: null,
-  },
-];
-
 export const interestSurveys = [
   {
     id: 1,

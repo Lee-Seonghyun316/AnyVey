@@ -1,13 +1,25 @@
-import React, { useCallback, useState } from 'react';
+import React, { Suspense, useCallback, useState } from 'react';
 import styled from 'styled-components';
 import Header from '../header/header';
+import { useQuery } from 'react-query';
+
 import 'react-circular-progressbar/dist/styles.css';
 import MySurvey from './mySurvey';
 import more from '../../common/images/more.png';
 import coin from '../../common/images/coin.png';
 import InterestSurvey from './interestSurvey';
 import LogoutMySurvey from './logoutMySurvey';
-import { mySurveys, interestSurveys } from '../../data/servey';
+import { interestSurveys } from '../../data/servey';
+import axios from 'axios';
+
+type Survey = {
+  id: number;
+  title: string;
+  respondent: number;
+  recruitment: number;
+  deadLine: string;
+  gift: string | null;
+};
 
 const Home = () => {
   const interestsFirst = interestSurveys.slice(0, 4);
@@ -18,52 +30,29 @@ const Home = () => {
     setMoreToggle(!moreToggle);
   };
 
+  // if (error) return null;
+
   return (
-    <HomeContainer>
-      <Header headerStyle="home" />
-      <OngoingSurvey>
-        <SectionTitleContainer>
-          <SectionTitle>진행중인 설문 </SectionTitle>
-          {login && <Count>{mySurveys.length}</Count>}
-        </SectionTitleContainer>
-        {login && (
-          <Surveys>
-            {mySurveys.map((mySurvey) => (
-              <MySurvey
-                key={mySurvey.id}
-                title={mySurvey.title}
-                respondent={mySurvey.respondent}
-                recruitment={mySurvey.recruitment}
-                deadLine={mySurvey.deadLine}
-                gift={mySurvey.gift}
-              />
-            ))}
-          </Surveys>
-        )}
-        {!login && <LogoutMySurvey />}
-      </OngoingSurvey>
-      <ResponseGain>
-        <GainTitle>설문 응답시 마일리지 지급!</GainTitle>
-        <GainContent>
-          <GainDes>
-            마일리지는 설문조사 작성과 기존 설문 결과 데이터 열람 시 사용할 수
-            있어요
-          </GainDes>
-          <GainImg src={coin} />
-        </GainContent>
-      </ResponseGain>
-      <InterestsTitle>관심분야 설문이 올라왔어요!</InterestsTitle>
-      <InterestsContainer>
-        {interestsFirst.map((interest) => (
-          <InterestSurvey
-            key={interest.id}
-            title={interest.title}
-            tag={interest.tag}
-            gift={interest.gift}
-          />
-        ))}
-        {moreToggle &&
-          interestsSecond.map((interest) => (
+    <Suspense fallback={<span>loading</span>}>
+      <HomeContainer>
+        <Header headerStyle="home" />
+        <OngoingSurvey>
+          {login && <SurveyList />}
+          {!login && <LogoutMySurvey />}
+        </OngoingSurvey>
+        <ResponseGain>
+          <GainTitle>설문 응답시 마일리지 지급!</GainTitle>
+          <GainContent>
+            <GainDes>
+              마일리지는 설문조사 작성과 기존 설문 결과 데이터 열람 시 사용할 수
+              있어요
+            </GainDes>
+            <GainImg src={coin} />
+          </GainContent>
+        </ResponseGain>
+        <InterestsTitle>관심분야 설문이 올라왔어요!</InterestsTitle>
+        <InterestsContainer>
+          {interestsFirst.map((interest) => (
             <InterestSurvey
               key={interest.id}
               title={interest.title}
@@ -71,15 +60,52 @@ const Home = () => {
               gift={interest.gift}
             />
           ))}
-      </InterestsContainer>
-      <MoreButton onClick={handleMore}>
-        {!moreToggle && <MoreImg src={more} />}
-      </MoreButton>
-    </HomeContainer>
+          {moreToggle &&
+            interestsSecond.map((interest) => (
+              <InterestSurvey
+                key={interest.id}
+                title={interest.title}
+                tag={interest.tag}
+                gift={interest.gift}
+              />
+            ))}
+        </InterestsContainer>
+        <MoreButton onClick={handleMore}>
+          {!moreToggle && <MoreImg src={more} />}
+        </MoreButton>
+      </HomeContainer>
+    </Suspense>
   );
 };
 
 export default Home;
+
+const SurveyList = () => {
+  const { data: surveys, error } = useQuery(['forms'], async () => {
+    const response = await axios.get('http://localhost:8080/surveys');
+    return response.data;
+  });
+  return (
+    <>
+      <SectionTitleContainer>
+        <SectionTitle>진행중인 설문 </SectionTitle>
+        <Count>{surveys.length}</Count>
+      </SectionTitleContainer>
+      <Surveys>
+        {surveys.map((mySurvey: Survey) => (
+          <MySurvey
+            key={mySurvey.id}
+            title={mySurvey.title}
+            respondent={mySurvey.respondent}
+            recruitment={mySurvey.recruitment}
+            deadLine={mySurvey.deadLine}
+            gift={mySurvey.gift}
+          />
+        ))}
+      </Surveys>
+    </>
+  );
+};
 
 const HomeContainer = styled.section``;
 

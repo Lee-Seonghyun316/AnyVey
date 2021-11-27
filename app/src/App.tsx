@@ -28,6 +28,7 @@ const App = function () {
     navigate('/create-survey');
     setIsModalOpen(false);
   };
+
   return (
     <>
       <Routes>
