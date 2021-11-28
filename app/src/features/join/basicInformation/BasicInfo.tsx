@@ -2,10 +2,12 @@ import React from 'react';
 import Header from '../../header/header';
 import BasicButton from '../../../common/components/BasicButton';
 import styled from 'styled-components';
-import { fields, targetAges, targetGender } from '../../../data/category';
+import { categories, targetAges, targetGender } from '../../../data/category';
 
 const BasicInfo = () => {
-  const fieldsExceptIrrelevant = fields.filter(({ text }) => text !== '무관');
+  const fieldsExceptIrrelevant = categories.filter(
+    ({ text }) => text !== '무관',
+  );
   const ageExceptAll = targetAges.filter(({ text }) => text !== '전체');
   const genderExceptAll = targetGender.filter(({ text }) => text !== '전체');
   return (

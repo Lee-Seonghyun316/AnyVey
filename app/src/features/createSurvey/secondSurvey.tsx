@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Dropdown } from 'react-dropdown-now';
+import { Switch } from '@mui/material';
 import 'react-dropdown-now/style.css';
 import Delete from '../../common/images/delete.png';
 import Drop from '../../common/images/drop.png';
 import PlusSmall from '../../common/images/plusSmall.png';
 import Dot from '../../common/images/dot3.png';
 import Plus from '../../common/images/plus.png';
-import { Switch } from '@mui/material';
 
 const SecondSurvey = () => {
   const [showOption, setShowOption] = useState(false);
@@ -17,8 +17,8 @@ const SecondSurvey = () => {
   };
   const label = { inputProps: { 'aria-label': 'Switch demo' } };
   return (
-    <Content>
-      <Title>설문지 제목</Title>
+    <ContentWrap>
+      <Title2>설문지 제목</Title2>
       <Question>
         <QTitle placeholder="질문" />
         <DropDownContainer>
@@ -64,17 +64,17 @@ const SecondSurvey = () => {
         </DropDownContainer>
         <Selections>
           <Selection>
-            <ButtonContainer>
-              <Button />
+            <ButtonContainer2>
+              <Button2 />
               <LabelInput placeholder="옵션" />
-            </ButtonContainer>
+            </ButtonContainer2>
             <DeleteButton />
           </Selection>
           <Selection>
-            <ButtonContainer>
-              <Button />
+            <ButtonContainer2>
+              <Button2 />
               <LabelInput placeholder="옵션" />
-            </ButtonContainer>
+            </ButtonContainer2>
             <DeleteButton />
           </Selection>
         </Selections>
@@ -102,18 +102,18 @@ const SecondSurvey = () => {
       <SectionPlusButton>
         <PlusImg src={Plus} />
       </SectionPlusButton>
-    </Content>
+    </ContentWrap>
   );
 };
 
-const Content = styled.section`
+const ContentWrap = styled.section`
   height: 100vh;
   background: #fff5ea;
   display: flex;
   flex-direction: column;
 `;
 
-const Title = styled.h1`
+const Title2 = styled.h1`
   font-weight: 600;
   font-size: 16px;
   line-height: 22px;
@@ -165,12 +165,12 @@ const Selection = styled.li`
   margin-bottom: 14px;
 `;
 
-const ButtonContainer = styled.div`
+const ButtonContainer2 = styled.div`
   display: flex;
   align-items: center;
 `;
 
-const Button = styled.button`
+const Button2 = styled.button`
   width: 22px;
   height: 22px;
   background: #ffffff;
