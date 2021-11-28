@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import HomeOn from '../../common/images/bottomHomeOn.png';
 import Home from '../../common/images/bottomHome.png';
@@ -8,21 +8,39 @@ import MySurvey from '../../common/images/bottomMySurvey.png';
 import User from '../../common/images/bottomUser.png';
 import Plus from '../../common/images/plusButton.png';
 import { theme } from '../../common/styles/theme';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 interface Props {
   setIsModalOpen?: React.Dispatch<React.SetStateAction<boolean>> | void;
-  path: string;
 }
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 const noop = () => {};
 
-const BottomBar: React.FC<Props> = ({ path, setIsModalOpen = noop }) => {
+const BottomBar: React.FC<Props> = ({ setIsModalOpen = noop }) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Todo: 청소!!!!!!!
+  const [path, setPath] = useState('/');
+  useEffect(() => {
+    const path = location.pathname;
+    if (path === '/') {
+      setPath('home');
+    } else if (path === '/reference') {
+      setPath('reference');
+    } else if (path === '/my-survey') {
+      setPath('mySurvey');
+    } else if (path === '/user') {
+      setPath('User');
+    }
+  }, [location.pathname]);
+
   return (
     <Wrap>
-      <Button>
+      <Button onClick={() => navigate('/')}>
         {path === 'home' ? <Img src={HomeOn} /> : <Img src={Home} />}홈
       </Button>
-      <Button>
+      <Button onClick={() => navigate('reference')}>
         {path === 'reference' ? (
           <Img src={ReferenceOn} />
         ) : (
@@ -37,7 +55,7 @@ const BottomBar: React.FC<Props> = ({ path, setIsModalOpen = noop }) => {
       >
         <PlusImg src={Plus} />
       </Button>
-      <Button>
+      <Button onClick={() => navigate('my-survey')}>
         {path === 'mySurvey' ? <Img src={HomeOn} /> : <Img src={MySurvey} />}
         내설문
       </Button>

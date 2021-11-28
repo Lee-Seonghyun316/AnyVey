@@ -11,6 +11,8 @@ import InterestSurvey from './interestSurvey';
 import LogoutMySurvey from './logoutMySurvey';
 import { interestSurveys } from '../../data/servey';
 import axios from 'axios';
+import ErrorBoundary from 'common/components/ErrorBoundary';
+import { useNavigate } from 'react-router-dom';
 
 type Survey = {
   id: number;
@@ -30,36 +32,30 @@ const Home = () => {
     setMoreToggle(!moreToggle);
   };
 
+  // if (error) return null;
+
   return (
-    <Suspense fallback={<span>loading</span>}>
-      <HomeContainer>
-        <Header headerStyle="home" />
-        <OngoingSurvey>
-          {login && <SurveyList />}
-          {!login && <LogoutMySurvey />}
-        </OngoingSurvey>
-        <ResponseGain>
-          <GainTitle>설문 응답시 마일리지 지급!</GainTitle>
-          <GainContent>
-            <GainDes>
-              마일리지는 설문조사 작성과 기존 설문 결과 데이터 열람 시 사용할 수
-              있어요
-            </GainDes>
-            <GainImg src={coin} />
-          </GainContent>
-        </ResponseGain>
-        <InterestsTitle>관심분야 설문이 올라왔어요!</InterestsTitle>
-        <InterestsContainer>
-          {interestsFirst.map((interest) => (
-            <InterestSurvey
-              key={interest.id}
-              title={interest.title}
-              tag={interest.tag}
-              gift={interest.gift}
-            />
-          ))}
-          {moreToggle &&
-            interestsSecond.map((interest) => (
+    <ErrorBoundary>
+      <Suspense fallback={<span>loading</span>}>
+        <HomeContainer>
+          <Header headerStyle="home" />
+          <OngoingSurvey>
+            {login && <SurveyList />}
+            {!login && <LogoutMySurvey />}
+          </OngoingSurvey>
+          <ResponseGain>
+            <GainTitle>설문 응답시 마일리지 지급!</GainTitle>
+            <GainContent>
+              <GainDes>
+                마일리지는 설문조사 작성과 기존 설문 결과 데이터 열람 시 사용할
+                수 있어요
+              </GainDes>
+              <GainImg src={coin} />
+            </GainContent>
+          </ResponseGain>
+          <InterestsTitle>관심분야 설문이 올라왔어요!</InterestsTitle>
+          <InterestsContainer>
+            {interestsFirst.map((interest) => (
               <InterestSurvey
                 key={interest.id}
                 title={interest.title}
@@ -67,18 +63,29 @@ const Home = () => {
                 gift={interest.gift}
               />
             ))}
-        </InterestsContainer>
-        <MoreButton onClick={handleMore}>
-          {!moreToggle && <MoreImg src={more} />}
-        </MoreButton>
-      </HomeContainer>
-    </Suspense>
+            {moreToggle &&
+              interestsSecond.map((interest) => (
+                <InterestSurvey
+                  key={interest.id}
+                  title={interest.title}
+                  tag={interest.tag}
+                  gift={interest.gift}
+                />
+              ))}
+          </InterestsContainer>
+          <MoreButton onClick={handleMore}>
+            {!moreToggle && <MoreImg src={more} />}
+          </MoreButton>
+        </HomeContainer>
+      </Suspense>
+    </ErrorBoundary>
   );
 };
 
 export default Home;
 
 const SurveyList = () => {
+  const navigate = useNavigate();
   const { data: surveys, error } = useQuery(['forms'], async () => {
     const response = await axios.get('http://localhost:8080/surveys');
     return response.data;
@@ -100,6 +107,9 @@ const SurveyList = () => {
             recruitment={mySurvey.recruitment}
             deadLine={mySurvey.deadLine}
             gift={mySurvey.gift}
+            onClick={() => {
+              navigate(`/my-survey/${mySurvey.id}`);
+            }}
           />
         ))}
       </Surveys>

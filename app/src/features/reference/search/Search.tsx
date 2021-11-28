@@ -4,9 +4,11 @@ import Header from '../../header/header';
 import search from '../../../common/images/search.png';
 import { suggestionSurveys } from '../../../data/servey';
 import RecommendSurvey from '../recommendSurvey';
+import { useNavigate } from 'react-router-dom';
 
 const Search = () => {
   const [result, setResult] = useState(false);
+  const navigate = useNavigate();
   return (
     <Wrap>
       <Header headerStyle="back&title" title="검색결과" />
@@ -23,6 +25,9 @@ const Search = () => {
               recruitment={item.recruitment}
               description={item.description}
               tag={item.tag}
+              onClick={() => {
+                navigate(`/reference/${item.id}`);
+              }}
             />
           ))}
         </RecommendSurveysContainer>
@@ -38,6 +43,9 @@ const Search = () => {
                 recruitment={item.recruitment}
                 description={item.description}
                 tag={item.tag}
+                onClick={() => {
+                  navigate(`/reference/${item.id}`);
+                }}
               />
             ))}
           </RecommendSurveysContainer>

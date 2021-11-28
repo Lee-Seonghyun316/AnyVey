@@ -14,6 +14,7 @@ interface Props {
   recruitment: number;
   deadLine: string;
   gift: string | null;
+  onClick: () => void;
 }
 
 const MySurvey: React.FC<Props> = ({
@@ -22,11 +23,12 @@ const MySurvey: React.FC<Props> = ({
   recruitment,
   deadLine,
   gift,
+  onClick,
 }) => {
   const percentage = (respondent / recruitment) * 100;
 
   return (
-    <Survey>
+    <Survey onClick={onClick}>
       <SurveyTitle>{title}</SurveyTitle>
       <GraphContainer>
         <GraphSize>

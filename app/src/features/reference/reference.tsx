@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import BottomBar from '../bottomBar/bottomBar';
 import Header from '../header/header';
 import search from '../../common/images/search.png';
 import BestSurvey from './bestSurvey';
 import { bestSurveys, suggestionSurveys } from '../../data/servey';
 import RecommendSurvey from './recommendSurvey';
+import { useNavigate } from 'react-router-dom';
 
 const Reference = () => {
+  const navigate = useNavigate();
   return (
     <ReferenceContainer>
       <Header headerStyle="thickTitle" title="자료실" />
@@ -38,6 +39,9 @@ const Reference = () => {
             recruitment={item.recruitment}
             description={item.description}
             tag={item.tag}
+            onClick={() => {
+              navigate(`/reference/${item.id}`);
+            }}
           />
         ))}
       </RecommendSurveysContainer>
