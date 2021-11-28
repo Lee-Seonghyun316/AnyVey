@@ -2,7 +2,7 @@ import React, { Suspense, useCallback, useState } from 'react';
 import styled from 'styled-components';
 import Header from '../header/header';
 import { useQuery } from 'react-query';
-
+import ReactLoading from 'react-loading';
 import 'react-circular-progressbar/dist/styles.css';
 import MySurvey from './mySurvey';
 import more from '../../common/images/more.png';
@@ -36,7 +36,30 @@ const Home = () => {
 
   return (
     <ErrorBoundary>
-      <Suspense fallback={<span>loading</span>}>
+      <Suspense
+        fallback={
+          <LoadingContainer>
+            <ContentWrap>
+              <div
+                style={{
+                  position: 'fixed',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                }}
+              >
+                <h2>loading...</h2>
+                <ReactLoading
+                  type="spin"
+                  color="grey"
+                  height={'80%'}
+                  width={'80%'}
+                />
+              </div>
+            </ContentWrap>
+          </LoadingContainer>
+        }
+      >
         <HomeContainer>
           <Header headerStyle="home" />
           <OngoingSurvey>
@@ -117,6 +140,16 @@ const SurveyList = () => {
   );
 };
 
+const ContentWrap = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+
+const LoadingContainer = styled.div`
+  height: 100vh;
+`;
 const HomeContainer = styled.section``;
 
 const OngoingSurvey = styled.section`
