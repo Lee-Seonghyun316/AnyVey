@@ -68,7 +68,7 @@ const HeadCenterTitle = styled.header`
   height: 50px;
 `;
 
-const Logo = styled.img`
+export const Logo = styled.img`
   width: 76.13px;
   height: 20px;
 `;
