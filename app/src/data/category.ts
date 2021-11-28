@@ -1,4 +1,4 @@
-export const fields = [
+export const categories = [
   {
     id: 1,
     value: 'society',
